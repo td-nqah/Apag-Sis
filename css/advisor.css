@@ -1,0 +1,289 @@
+/* ==========================================================================
+   APAG Advisor Views - Modern Minimal Enterprise SaaS UI
+   ========================================================================== */
+
+/* --- 1. Advisor KPI Row --- */
+.advisor-kpi-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.kpi-indicator-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.kpi-indicator-chip:hover {
+  background-color: var(--surface-muted);
+  border-color: var(--border-hover);
+}
+
+.kpi-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* --- 2. AI Summary Callout in Student Detail --- */
+.ai-summary-callout {
+  padding: 18px 20px;
+  background-color: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-card);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.ai-summary-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.ai-summary-header i,
+.ai-summary-header svg {
+  color: var(--primary);
+  width: 15px;
+  height: 15px;
+}
+
+.ai-disclaimer-notice {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--primary-subtle);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- 3. Requests List Card --- */
+.request-card-item {
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.request-card-item:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* --- 4. Advisor Reports & Analytics Enhancements --- */
+.report-filter-bar {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 24px;
+}
+
+.report-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.report-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.report-kpi-card {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-card);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.report-kpi-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.report-kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.report-kpi-title {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.report-kpi-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.report-kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.report-kpi-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.report-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.sortable-th {
+  cursor: pointer;
+  user-select: none;
+  transition: color var(--transition-fast);
+}
+
+.sortable-th:hover {
+  color: var(--primary) !important;
+}
+
+.sortable-th i, .sortable-th svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+  opacity: 0.5;
+}
+
+.sortable-th.sorted i, .sortable-th.sorted svg {
+  opacity: 1;
+  color: var(--primary);
+}
+
+.print-only-header,
+.print-only-signature {
+  display: none;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+  }
+
+  .app-sidebar,
+  .sidebar,
+  .app-navbar,
+  .navbar,
+  #navbar-container,
+  #sidebar-container,
+  #ai-chat-container,
+  #toast-root,
+  .report-filter-bar,
+  .no-print,
+  .pagination-container,
+  .btn,
+  button {
+    display: none !important;
+  }
+
+  .main-wrapper,
+  .page-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .print-only-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #111827;
+    padding-bottom: 12px;
+  }
+
+  .print-only-signature {
+    display: flex !important;
+    justify-content: space-between;
+    margin-top: 36px;
+    padding-top: 20px;
+    page-break-inside: avoid;
+  }
+
+  .minimal-card,
+  .card,
+  .report-kpi-card {
+    box-shadow: none !important;
+    border: 1px solid #9CA3AF !important;
+    page-break-inside: avoid;
+    margin-bottom: 16px !important;
+  }
+
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  th, td {
+    border: 1px solid #D1D5DB !important;
+    padding: 6px 8px !important;
+    font-size: 9pt !important;
+  }
+
+  th {
+    background-color: #F3F4F6 !important;
+    color: #111827 !important;
+  }
+}
+
