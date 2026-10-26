@@ -21,7 +21,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  transition: margin-left var(--transition-normal), width var(--transition-normal);
   width: calc(100% - var(--sidebar-width, 250px));
   background-color: transparent;
 }
@@ -708,14 +707,15 @@
   height: 100%;
   background: var(--primary-gradient);
   border-radius: var(--radius-pill);
-  transition: width 400ms ease;
+  transform-origin: left;
+  transition: transform 400ms ease, opacity 400ms ease;
 }
 
 .kpi-trend {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem; /* 12px min floor */
   font-weight: 600;
   padding: 2px 7px;
   border-radius: var(--radius-pill);

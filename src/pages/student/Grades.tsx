@@ -106,22 +106,22 @@ export const StudentGrades: React.FC = () => {
         <div className="metric-card">
           <span className="metric-label">GPA Tích lũy (Hệ 4.0)</span>
           <div className="metric-value text-primary">3.24 <span className="metric-sub">/ 4.00</span></div>
-          <div className="metric-footer text-muted">Quy đổi hệ 10: ~8.12</div>
+          <div className="metric-footer text-muted" style={{ fontSize: '0.75rem' }}>Quy đổi hệ 10: ~8.12</div>
         </div>
         <div className="metric-card">
           <span className="metric-label">Xếp loại học lực</span>
-          <div className="metric-value text-success">GIỎI</div>
-          <div className="metric-footer text-success">Đạt chuẩn khen thưởng học vụ</div>
+          <div className="metric-value" style={{ color: 'var(--success-text, #064E3B)' }}>GIỎI</div>
+          <div className="metric-footer" style={{ color: 'var(--success, #047857)', fontSize: '0.75rem' }}>Đạt chuẩn khen thưởng học vụ</div>
         </div>
         <div className="metric-card">
           <span className="metric-label">Tổng tín chỉ tích lũy</span>
           <div className="metric-value">72 <span className="metric-sub">/ 130 TC</span></div>
-          <div className="metric-footer text-muted">Đạt 55.4% tổng khối lượng CTĐT</div>
+          <div className="metric-footer text-muted" style={{ fontSize: '0.75rem' }}>Đạt 55.4% tổng khối lượng CTĐT</div>
         </div>
         <div className="metric-card">
           <span className="metric-label">Tín chỉ chưa đạt</span>
-          <div className="metric-value text-success">0 <span className="metric-sub">TC</span></div>
-          <div className="metric-footer text-success">Không có học phần chưa đạt</div>
+          <div className="metric-value" style={{ color: 'var(--success-text, #064E3B)' }}>0 <span className="metric-sub">TC</span></div>
+          <div className="metric-footer" style={{ color: 'var(--success, #047857)', fontSize: '0.75rem' }}>Không có học phần chưa đạt</div>
         </div>
       </div>
 
@@ -170,58 +170,56 @@ export const StudentGrades: React.FC = () => {
         </div>
       </div>
 
-      {/* Grade Detail Table */}
-      <div className="minimal-card" style={{ padding: '0', overflow: 'hidden' }}>
-        <div className="table-responsive">
-          <table className="minimal-table">
-            <thead>
+      {/* Grade Detail Table (Single Card without nested frames, 24px padding) */}
+      <div className="minimal-card" style={{ padding: '24px', overflowX: 'auto' }}>
+        <table className="minimal-table" style={{ width: '100%', borderCollapse: 'collapse', border: 'none', boxShadow: 'none' }}>
+          <thead>
+            <tr>
+              <th style={{ width: '100px', padding: '12px 16px', fontSize: '0.8125rem' }}>Mã HP</th>
+              <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Tên học phần</th>
+              <th style={{ width: '70px', padding: '12px 16px', fontSize: '0.8125rem' }}>Số TC</th>
+              <th style={{ width: '130px', padding: '12px 16px', fontSize: '0.8125rem' }}>Học kỳ</th>
+              <th style={{ width: '90px', padding: '12px 16px', fontSize: '0.8125rem' }}>CC (10%)</th>
+              <th style={{ width: '90px', padding: '12px 16px', fontSize: '0.8125rem' }}>GK (30%)</th>
+              <th style={{ width: '90px', padding: '12px 16px', fontSize: '0.8125rem' }}>CK (60%)</th>
+              <th style={{ width: '130px', padding: '12px 16px', fontSize: '0.8125rem' }}>Điểm TK (Hệ 10)</th>
+              <th style={{ width: '90px', padding: '12px 16px', fontSize: '0.8125rem' }}>Điểm chữ</th>
+              <th style={{ width: '110px', padding: '12px 16px', fontSize: '0.8125rem' }}>Điểm số (Hệ 4)</th>
+              <th style={{ width: '90px', padding: '12px 16px', fontSize: '0.8125rem' }}>Kết quả</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredGrades.length === 0 ? (
               <tr>
-                <th style={{ width: '100px' }}>MÃ HP</th>
-                <th>TÊN HỌC PHẦN</th>
-                <th style={{ width: '70px' }}>SỐ TC</th>
-                <th style={{ width: '120px' }}>HỌC KỲ</th>
-                <th style={{ width: '90px' }}>CC (10%)</th>
-                <th style={{ width: '90px' }}>GK (30%)</th>
-                <th style={{ width: '90px' }}>CK (60%)</th>
-                <th style={{ width: '120px' }}>ĐIỂM TK (HỆ 10)</th>
-                <th style={{ width: '90px' }}>ĐIỂM CHỮ</th>
-                <th style={{ width: '110px' }}>ĐIỂM SỐ (HỆ 4)</th>
-                <th style={{ width: '90px' }}>KẾT QUẢ</th>
+                <td colSpan={11} className="text-center py-6 text-muted" style={{ textAlign: 'center', padding: '24px', fontSize: '0.875rem' }}>
+                  Không có dữ liệu điểm cho học kỳ này.
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {filteredGrades.length === 0 ? (
-                <tr>
-                  <td colSpan={11} className="text-center py-6 text-muted" style={{ textAlign: 'center', padding: '24px' }}>
-                    Không có dữ liệu điểm cho học kỳ này.
-                  </td>
-                </tr>
-              ) : (
-                filteredGrades.map((g, idx) => {
-                  const isPassed = g.gradePoint >= 2.0;
-                  const badgeClass = isPassed ? 'badge-success' : 'badge-danger';
-                  const statusText = isPassed ? 'Đạt' : 'Chưa đạt';
+            ) : (
+              filteredGrades.map((g, idx) => {
+                const isPassed = g.gradePoint >= 2.0;
+                const badgeClass = isPassed ? 'badge-success' : 'badge-danger';
+                const statusText = isPassed ? 'Đạt' : 'Chưa đạt';
 
-                  return (
-                    <tr key={idx}>
-                      <td style={{ textAlign: 'center' }}>{g.courseCode}</td>
-                      <td style={{ textAlign: 'left' }} className="font-medium text-main">{g.courseName}</td>
-                      <td style={{ textAlign: 'center' }}><strong>{g.credits}</strong></td>
-                      <td style={{ textAlign: 'center' }}>{g.semester}</td>
-                      <td style={{ textAlign: 'center' }}>{g.attendanceScore.toFixed(1)}</td>
-                      <td style={{ textAlign: 'center' }}>{g.midtermScore.toFixed(1)}</td>
-                      <td style={{ textAlign: 'center' }}>{g.finalScore.toFixed(1)}</td>
-                      <td style={{ textAlign: 'center', fontWeight: 'bold' }}>{g.score10.toFixed(1)}</td>
-                      <td style={{ textAlign: 'center' }}><span className={`badge ${badgeClass}`}>{g.letterGrade}</span></td>
-                      <td style={{ textAlign: 'center', fontWeight: 'bold' }}>{g.gradePoint.toFixed(1)}</td>
-                      <td style={{ textAlign: 'center' }}><span className={`badge ${badgeClass}`}>{statusText}</span></td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
-        </div>
+                return (
+                  <tr key={idx}>
+                    <td style={{ textAlign: 'center', padding: '12px 16px', fontSize: '0.875rem' }}>{g.courseCode}</td>
+                    <td style={{ textAlign: 'left', padding: '12px 16px', fontSize: '0.875rem' }} className="font-medium text-main">{g.courseName}</td>
+                    <td style={{ textAlign: 'center', padding: '12px 16px', fontSize: '0.875rem' }}><strong>{g.credits}</strong></td>
+                    <td style={{ textAlign: 'center', padding: '12px 16px', fontSize: '0.875rem' }}>{g.semester}</td>
+                    <td style={{ textAlign: 'center', padding: '12px 16px', fontSize: '0.875rem' }}>{g.attendanceScore.toFixed(1)}</td>
+                    <td style={{ textAlign: 'center', padding: '12px 16px', fontSize: '0.875rem' }}>{g.midtermScore.toFixed(1)}</td>
+                    <td style={{ textAlign: 'center', padding: '12px 16px', fontSize: '0.875rem' }}>{g.finalScore.toFixed(1)}</td>
+                    <td style={{ textAlign: 'center', fontWeight: 'bold', padding: '12px 16px', fontSize: '0.875rem' }}>{g.score10.toFixed(1)}</td>
+                    <td style={{ textAlign: 'center', padding: '12px 16px' }}><span className={`badge ${badgeClass}`} style={{ fontSize: '0.75rem' }}>{g.letterGrade}</span></td>
+                    <td style={{ textAlign: 'center', fontWeight: 'bold', padding: '12px 16px', fontSize: '0.875rem' }}>{g.gradePoint.toFixed(1)}</td>
+                    <td style={{ textAlign: 'center', padding: '12px 16px' }}><span className={`badge ${badgeClass}`} style={{ fontSize: '0.75rem' }}>{statusText}</span></td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

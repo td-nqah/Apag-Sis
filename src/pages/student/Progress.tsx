@@ -318,167 +318,173 @@ export const StudentProgress: React.FC = () => {
           style={{ display: activeTab === 'audit' ? 'block' : 'none' }}
         >
           {/* 4-Year Academic Journey Table (Degree Audit Timeline) */}
-          <div className="minimal-card mb-6">
-        <div className="card-header d-flex justify-between items-center flex-wrap gap-2">
-          <div>
-            <h2 className="card-title text-base font-bold">1. Lộ trình thẩm định hành trình đào tạo 4 năm (2022 - 2026)</h2>
+          <div className="minimal-card mb-6" style={{ padding: '24px' }}>
+            <div className="card-header d-flex justify-between items-center flex-wrap gap-2" style={{ marginBottom: '16px', padding: 0 }}>
+              <div>
+                <h2 className="card-title text-base font-bold">1. Lộ trình thẩm định hành trình đào tạo 4 năm (2022 - 2026)</h2>
+              </div>
+              <span className="badge badge-success font-bold" id="totalAuditBadge" style={{ fontSize: '0.75rem', padding: '3px 10px' }}>
+                Đã tích lũy: 72 / 130 TC (55.4%)
+              </span>
+            </div>
+            <div style={{ overflowX: 'auto' }}>
+              <table className="minimal-table" style={{ width: '100%', borderCollapse: 'collapse', border: 'none', boxShadow: 'none' }}>
+                <thead>
+                  <tr>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Giai đoạn đào tạo</th>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Niên khóa & Học kỳ</th>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Tín chỉ tích lũy</th>
+                    <th style={{ width: '320px', minWidth: '280px', maxWidth: '380px', padding: '12px 16px', fontSize: '0.8125rem' }}>Trọng tâm kiến thức</th>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>GPA trung bình</th>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="font-bold text-main" style={{ padding: '12px 16px', fontSize: '0.875rem' }}>
+                      <div className="d-flex items-center gap-2">
+                        <CheckCircle size={16} style={{ color: 'var(--success, #047857)' }} />
+                        <span>Năm thứ Nhất</span>
+                      </div>
+                    </td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}>2022 - 2023 (HK1 & HK2)</td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}><strong style={{ color: 'var(--success-text, #064E3B)' }}>32 / 32 TC</strong> (100%)</td>
+                    <td style={{ width: '320px', minWidth: '280px', maxWidth: '380px', whiteSpace: 'normal', wordBreak: 'break-word', lineHeight: 1.5, padding: '12px 16px', fontSize: '0.875rem' }} className="text-secondary">
+                      Giáo dục đại cương, Triết học, Toán cao cấp, GDQP-AN
+                    </td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}><span className="font-bold text-main">3.22 / 4.0</span></td>
+                    <td style={{ padding: '12px 16px' }}><span className="badge badge-success" style={{ fontSize: '0.75rem' }}>Đã hoàn thành</span></td>
+                  </tr>
+                  <tr>
+                    <td className="font-bold text-main" style={{ padding: '12px 16px', fontSize: '0.875rem' }}>
+                      <div className="d-flex items-center gap-2">
+                        <CheckCircle size={16} style={{ color: 'var(--success, #047857)' }} />
+                        <span>Năm thứ Hai</span>
+                      </div>
+                    </td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}>2023 - 2024 (HK1 & HK2)</td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}><strong style={{ color: 'var(--success-text, #064E3B)' }}>40 / 40 TC</strong> (100%)</td>
+                    <td style={{ width: '320px', minWidth: '280px', maxWidth: '380px', whiteSpace: 'normal', wordBreak: 'break-word', lineHeight: 1.5, padding: '12px 16px', fontSize: '0.875rem' }} className="text-secondary">
+                      Cơ sở ngành APAG, CSDL, CTDL&GT, Toán rời rạc
+                    </td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}><span className="font-bold text-main">3.26 / 4.0</span></td>
+                    <td style={{ padding: '12px 16px' }}><span className="badge badge-success" style={{ fontSize: '0.75rem' }}>Đã hoàn thành</span></td>
+                  </tr>
+                  <tr style={{ background: 'rgba(37, 99, 235, 0.04)' }}>
+                    <td className="font-bold text-primary" style={{ padding: '12px 16px', fontSize: '0.875rem' }}>
+                      <div className="d-flex items-center gap-2">
+                        <Loader size={16} className="text-primary spin" />
+                        <span>Năm thứ Ba (Hiện tại)</span>
+                      </div>
+                    </td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}>2024 - 2025 (HK1 & HK2)</td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}><strong className="text-primary">14 / 34 TC</strong> (Đang học HK1)</td>
+                    <td style={{ width: '320px', minWidth: '280px', maxWidth: '380px', whiteSpace: 'normal', wordBreak: 'break-word', lineHeight: 1.5, padding: '12px 16px', fontSize: '0.875rem' }} className="text-secondary">
+                      Chính phủ số, HTTT Quản lý, An toàn thông tin, Khối tự chọn
+                    </td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}><span className="font-bold text-primary">3.24 / 4.0 (Tạm tính)</span></td>
+                    <td style={{ padding: '12px 16px' }}><span className="badge badge-primary" style={{ fontSize: '0.75rem' }}>Đang học HK1</span></td>
+                  </tr>
+                  <tr>
+                    <td className="font-bold text-muted" style={{ padding: '12px 16px', fontSize: '0.875rem' }}>
+                      <div className="d-flex items-center gap-2">
+                        <Clock size={16} className="text-muted" />
+                        <span>Năm thứ Tư (Năm cuối)</span>
+                      </div>
+                    </td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}>2025 - 2026 (HK1 & HK2)</td>
+                    <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}><strong className="text-muted">0 / 24 TC</strong> (Kế hoạch)</td>
+                    <td style={{ width: '320px', minWidth: '280px', maxWidth: '380px', whiteSpace: 'normal', wordBreak: 'break-word', lineHeight: 1.5, padding: '12px 16px', fontSize: '0.875rem' }} className="text-secondary">
+                      Thực tập cơ quan nhà nước, Khóa luận/Đề án tốt nghiệp
+                    </td>
+                    <td className="text-muted" style={{ padding: '12px 16px', fontSize: '0.875rem' }}>--</td>
+                    <td style={{ padding: '12px 16px' }}><span className="badge badge-outline" style={{ fontSize: '0.75rem' }}>Dự kiến 06/2026</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <span className="badge badge-success font-bold" id="totalAuditBadge">Đã tích lũy: 72 / 130 TC (55.4%)</span>
-        </div>
-        <div className="card-body p-0">
-          <div className="table-responsive">
-            <table className="minimal-table">
-              <thead>
-                <tr>
-                  <th>Giai đoạn đào tạo</th>
-                  <th>Niên khóa & Học kỳ</th>
-                  <th>Tín chỉ tích lũy</th>
-                  <th>Trọng tâm kiến thức</th>
-                  <th>GPA trung bình</th>
-                  <th>Trạng thái</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="font-bold text-main">
-                    <div className="d-flex items-center gap-2">
-                      <CheckCircle size={16} className="text-success" />
-                      <span>Năm thứ Nhất</span>
-                    </div>
-                  </td>
-                  <td>2022 - 2023 (HK1 & HK2)</td>
-                  <td><strong className="text-success">32 / 32 TC</strong> (100%)</td>
-                  <td className="text-secondary text-xs">Giáo dục đại cương, Triết học, Toán cao cấp, GDQP-AN</td>
-                  <td><span className="font-bold text-main">3.22 / 4.0</span></td>
-                  <td><span className="badge badge-success">Đã hoàn thành</span></td>
-                </tr>
-                <tr>
-                  <td className="font-bold text-main">
-                    <div className="d-flex items-center gap-2">
-                      <CheckCircle size={16} className="text-success" />
-                      <span>Năm thứ Hai</span>
-                    </div>
-                  </td>
-                  <td>2023 - 2024 (HK1 & HK2)</td>
-                  <td><strong className="text-success">40 / 40 TC</strong> (100%)</td>
-                  <td className="text-secondary text-xs">Cơ sở ngành APAG, CSDL, CTDL&GT, Toán rời rạc</td>
-                  <td><span className="font-bold text-main">3.26 / 4.0</span></td>
-                  <td><span className="badge badge-success">Đã hoàn thành</span></td>
-                </tr>
-                <tr style={{ background: 'rgba(37, 99, 235, 0.04)' }}>
-                  <td className="font-bold text-primary">
-                    <div className="d-flex items-center gap-2">
-                      <Loader size={16} className="text-primary spin" />
-                      <span>Năm thứ Ba (Hiện tại)</span>
-                    </div>
-                  </td>
-                  <td>2024 - 2025 (HK1 & HK2)</td>
-                  <td><strong className="text-primary">14 / 34 TC</strong> (Đang học HK1)</td>
-                  <td className="text-secondary text-xs">Chính phủ số, HTTT Quản lý, An toàn thông tin, Khối tự chọn</td>
-                  <td><span className="font-bold text-primary">3.24 / 4.0 (Tạm tính)</span></td>
-                  <td><span className="badge badge-primary">Đang học HK1</span></td>
-                </tr>
-                <tr>
-                  <td className="font-bold text-muted">
-                    <div className="d-flex items-center gap-2">
-                      <Clock size={16} className="text-muted" />
-                      <span>Năm thứ Tư (Năm cuối)</span>
-                    </div>
-                  </td>
-                  <td>2025 - 2026 (HK1 & HK2)</td>
-                  <td><strong className="text-muted">0 / 24 TC</strong> (Kế hoạch)</td>
-                  <td className="text-secondary text-xs">Thực tập cơ quan nhà nước, Khóa luận/Đề án tốt nghiệp</td>
-                  <td className="text-muted">--</td>
-                  <td><span className="badge badge-outline">Dự kiến 06/2026</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
 
-      {/* 2. Detailed 4 Blocks Analysis (Full-Width Card) */}
-      <div className="minimal-card mb-6">
-        <div className="card-header d-flex justify-between items-center flex-wrap gap-2">
-          <div>
-            <h3 className="card-title text-base font-bold">2. Phân tích chi tiết 4 khối kiến thức CTĐT</h3>
-          </div>
-          <span className="badge badge-primary font-bold">Khung chuẩn 130 TC</span>
-        </div>
-        <div className="card-body p-0" id="auditBlocksDetailed">
-          <div className="table-responsive">
-            <table className="minimal-table">
-              <thead>
-                <tr>
-                  <th>Khối kiến thức</th>
-                  <th>Niên khóa & Học kỳ</th>
-                  <th>Tín chỉ tích lũy</th>
-                  <th>Trọng tâm kiến thức</th>
-                  <th>Tiến độ</th>
-                  <th>Trạng thái</th>
-                </tr>
-              </thead>
-              <tbody>
-                {auditBlocks.map((b) => {
-                  let icon = <CheckCircle size={16} className="text-success" />;
-                  let titleClass = "font-bold text-main";
-                  let creditsClass = "text-success";
-                  let statusBadge = <span className="badge badge-success">Đã hoàn thành</span>;
-                  let barColor = "bg-success";
-                  let rowStyle: React.CSSProperties | undefined = undefined;
+          {/* 2. Detailed 4 Blocks Analysis (Full-Width Card) */}
+          <div className="minimal-card mb-6" style={{ padding: '24px' }}>
+            <div className="card-header d-flex justify-between items-center flex-wrap gap-2" style={{ marginBottom: '16px', padding: 0 }}>
+              <div>
+                <h3 className="card-title text-base font-bold">2. Phân tích chi tiết 4 khối kiến thức CTĐT</h3>
+              </div>
+              <span className="badge badge-primary font-bold" style={{ fontSize: '0.75rem', padding: '3px 10px' }}>Khung chuẩn 130 TC</span>
+            </div>
+            <div style={{ overflowX: 'auto' }} id="auditBlocksDetailed">
+              <table className="minimal-table" style={{ width: '100%', borderCollapse: 'collapse', border: 'none', boxShadow: 'none' }}>
+                <thead>
+                  <tr>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Khối kiến thức</th>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Niên khóa & Học kỳ</th>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Tín chỉ tích lũy</th>
+                    <th style={{ width: '320px', minWidth: '280px', maxWidth: '380px', padding: '12px 16px', fontSize: '0.8125rem' }}>Trọng tâm kiến thức</th>
+                    <th style={{ width: '180px', minWidth: '170px', padding: '12px 16px', fontSize: '0.8125rem' }}>Tiến độ</th>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {auditBlocks.map((b) => {
+                    let icon = <CheckCircle size={16} style={{ color: 'var(--success, #047857)' }} />;
+                    let titleClass = "font-bold text-main";
+                    let creditsStyle: React.CSSProperties = { color: 'var(--success-text, #064E3B)' };
+                    let statusBadge = <span className="badge badge-success" style={{ fontSize: '0.75rem' }}>Đã hoàn thành</span>;
+                    let barColor = "bg-success";
+                    let rowStyle: React.CSSProperties | undefined = undefined;
 
-                  if (b.status === 'in-progress') {
-                    icon = <Loader size={16} className="text-primary spin" />;
-                    titleClass = "font-bold text-primary";
-                    creditsClass = "text-primary";
-                    statusBadge = <span className="badge badge-primary">Đang tích lũy</span>;
-                    barColor = "bg-primary";
-                    rowStyle = { background: 'rgba(37, 99, 235, 0.04)' };
-                  } else if (b.status === 'not-started') {
-                    icon = <Clock size={16} className="text-muted" />;
-                    titleClass = "font-bold text-muted";
-                    creditsClass = "text-muted";
-                    statusBadge = <span className="badge badge-outline">Chưa bắt đầu</span>;
-                    barColor = "bg-muted";
-                  }
+                    if (b.status === 'in-progress') {
+                      icon = <Loader size={16} className="text-primary spin" />;
+                      titleClass = "font-bold text-primary";
+                      creditsStyle = { color: 'var(--primary, #1D4ED8)' };
+                      statusBadge = <span className="badge badge-primary" style={{ fontSize: '0.75rem' }}>Đang tích lũy</span>;
+                      barColor = "bg-primary";
+                      rowStyle = { background: 'rgba(37, 99, 235, 0.04)' };
+                    } else if (b.status === 'not-started') {
+                      icon = <Clock size={16} className="text-muted" />;
+                      titleClass = "font-bold text-muted";
+                      creditsStyle = { color: 'var(--text-muted)' };
+                      statusBadge = <span className="badge badge-outline" style={{ fontSize: '0.75rem' }}>Chưa bắt đầu</span>;
+                      barColor = "bg-muted";
+                    }
 
-                  return (
-                    <tr key={b.id} style={rowStyle}>
-                      <td className={titleClass}>
-                        <div className="d-flex items-center gap-2">
-                          {icon}
-                          <span>{b.id}. {b.title}</span>
-                        </div>
-                      </td>
-                      <td className="text-secondary text-xs">{b.term}</td>
-                      <td>
-                        <strong className={creditsClass}>{b.completed} / {b.required} TC</strong>
-                        <span className="text-xs text-muted ms-1">({b.percentage}%)</span>
-                      </td>
-                      <td className="text-secondary text-xs" style={{ minWidth: '180px' }}>
-                        {b.desc}
-                      </td>
-                      <td>
-                        <div className="d-flex items-center gap-2" style={{ minWidth: '95px' }}>
-                          <div className="progress" style={{ flex: 1, height: '6px', background: 'var(--surface-muted, #f1f5f9)', borderRadius: '999px', overflow: 'hidden' }}>
-                            <div className={`progress-bar ${barColor}`} style={{ width: `${Math.min(100, b.percentage)}%`, height: '100%' }} />
+                    return (
+                      <tr key={b.id} style={rowStyle}>
+                        <td className={titleClass} style={{ padding: '12px 16px', fontSize: '0.875rem' }}>
+                          <div className="d-flex items-center gap-2">
+                            {icon}
+                            <span>{b.id}. {b.title}</span>
                           </div>
-                          <span className="text-xs font-bold text-main" style={{ minWidth: '34px', textAlign: 'right' }}>
-                            {b.percentage}%
-                          </span>
-                        </div>
-                      </td>
-                      <td>
-                        {statusBadge}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                        </td>
+                        <td className="text-secondary" style={{ padding: '12px 16px', fontSize: '0.875rem' }}>{b.term}</td>
+                        <td style={{ padding: '12px 16px', fontSize: '0.875rem' }}>
+                          <strong style={creditsStyle}>{b.completed} / {b.required} TC</strong>
+                          <span className="text-muted ms-1" style={{ fontSize: '0.75rem' }}>({b.percentage}%)</span>
+                        </td>
+                        <td className="text-secondary" style={{ width: '320px', minWidth: '280px', maxWidth: '380px', whiteSpace: 'normal', wordBreak: 'break-word', lineHeight: 1.5, padding: '12px 16px', fontSize: '0.875rem' }}>
+                          {b.desc}
+                        </td>
+                        <td style={{ width: '180px', minWidth: '170px', padding: '12px 16px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
+                            <div className="progress" style={{ flex: 1, height: '8px', background: 'var(--surface-muted, #E2E8F0)', borderRadius: '999px', overflow: 'hidden' }}>
+                              <div className={`progress-bar ${barColor}`} style={{ width: `${Math.min(100, b.percentage)}%`, height: '100%', borderRadius: '999px' }} />
+                            </div>
+                            <span style={{ minWidth: '42px', textAlign: 'right', fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                              {b.percentage}%
+                            </span>
+                          </div>
+                        </td>
+                        <td style={{ padding: '12px 16px' }}>
+                          {statusBadge}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </div>
     </div>
 
     {/* Tab 2: Kiểm tra điều kiện (Thẻ chuẩn ĐK đầu ra dài 2, Thẻ tỷ lệ dài 1 cùng hàng) */}
@@ -518,10 +524,10 @@ export const StudentProgress: React.FC = () => {
                   }}
                 >
                   <div className="non-credit-cert-info" style={{ flex: 1 }}>
-                    <div className="non-credit-cert-title font-semibold text-sm text-main" style={{ color: 'var(--text-primary)' }}>
+                    <div className="non-credit-cert-title font-semibold text-sm text-main" style={{ color: 'var(--text-primary)', fontSize: '0.875rem' }}>
                       {c.name}
                     </div>
-                    <div className="non-credit-cert-note text-xs text-muted" style={{ marginTop: '4px' }}>
+                    <div className="non-credit-cert-note text-xs text-muted" style={{ marginTop: '4px', fontSize: '0.75rem' }}>
                       {c.note}
                     </div>
                   </div>
@@ -598,19 +604,19 @@ export const StudentProgress: React.FC = () => {
             </h3>
 
             <div className="table-responsive">
-              <table className="minimal-table" style={{ fontSize: '0.8125rem' }}>
+              <table className="minimal-table" style={{ fontSize: '0.875rem' }}>
                 <thead>
                   <tr>
-                    <th style={{ width: '40px' }}>Chọn</th>
-                    <th>Mã & Tên học phần</th>
-                    <th>Số TC</th>
-                    <th>Điểm dự kiến</th>
+                    <th style={{ width: '50px', padding: '12px 16px', fontSize: '0.8125rem' }}>Chọn</th>
+                    <th style={{ padding: '12px 16px', fontSize: '0.8125rem' }}>Mã & Tên học phần</th>
+                    <th style={{ width: '90px', padding: '12px 16px', fontSize: '0.8125rem' }}>Số TC</th>
+                    <th style={{ width: '150px', padding: '12px 16px', fontSize: '0.8125rem' }}>Điểm dự kiến</th>
                   </tr>
                 </thead>
                 <tbody id="whatIfCoursesTableBody">
                   {simCourses.map((c) => (
                     <tr key={c.code} style={c.isPrerequisite ? { background: 'rgba(239, 68, 68, 0.03)' } : {}}>
-                      <td className="text-center">
+                      <td className="text-center" style={{ padding: '12px 16px' }}>
                         <input 
                           type="checkbox" 
                           className="sim-course-checkbox form-check-input"
@@ -619,27 +625,27 @@ export const StudentProgress: React.FC = () => {
                           style={{ cursor: 'pointer', width: '16px', height: '16px' }}
                         />
                       </td>
-                      <td>
+                      <td style={{ padding: '12px 16px' }}>
                         <div className="d-flex items-center gap-2">
                           <span className="font-bold text-main">{c.code}</span>
                           <span className="text-secondary">{c.name}</span>
                           {c.isPrerequisite && (
-                            <span className="badge badge-danger text-xs font-bold" style={{ padding: '2px 6px' }}>
+                            <span className="badge badge-danger text-xs font-bold" style={{ padding: '2px 8px', fontSize: '0.75rem' }}>
                               [Tiên quyết]
                             </span>
                           )}
                         </div>
-                        <div className="text-xs text-muted mt-0.5">{c.category}</div>
+                        <div className="text-xs text-muted mt-0.5" style={{ fontSize: '0.75rem' }}>{c.category}</div>
                       </td>
-                      <td>
-                        <span className="badge badge-secondary font-semibold">{c.credits} TC</span>
+                      <td style={{ padding: '12px 16px' }}>
+                        <span className="badge badge-secondary font-semibold" style={{ fontSize: '0.75rem' }}>{c.credits} TC</span>
                       </td>
-                      <td style={{ minWidth: '130px' }}>
+                      <td style={{ minWidth: '130px', padding: '12px 16px' }}>
                         <select 
                           className="form-select form-select-sm sim-grade-select font-semibold"
                           value={c.expectedGrade}
                           onChange={(e) => handleGradeChange(c.code, e.target.value)}
-                          style={{ cursor: 'pointer', padding: '4px 8px', fontSize: '0.8125rem' }}
+                          style={{ cursor: 'pointer', padding: '6px 10px', fontSize: '0.875rem' }}
                         >
                           {gradeOptions.map(g => (
                             <option key={g} value={g}>{g} ({gradeMap[g].toFixed(1)})</option>

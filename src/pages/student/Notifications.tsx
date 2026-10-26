@@ -100,33 +100,33 @@ export const StudentNotifications: React.FC = () => {
       case 'warning':
         return {
           label: 'Cảnh báo',
-          color: '#EF4444', // Màu đỏ
-          accentBg: 'rgba(239, 68, 68, 0.08)',
-          badgeBorder: 'rgba(239, 68, 68, 0.35)',
-          badgeText: '#DC2626',
-          cardBg: isRead ? 'var(--surface)' : 'rgba(239, 68, 68, 0.035)',
-          borderColor: '#EF4444'
+          color: 'var(--danger, #B91C1C)',
+          accentBg: 'var(--danger-bg, #FEF2F2)',
+          badgeBorder: 'var(--danger-border, #FECACA)',
+          badgeText: 'var(--danger-text, #7F1D1D)',
+          cardBg: isRead ? 'var(--surface)' : 'rgba(185, 28, 28, 0.04)',
+          borderColor: 'var(--danger, #B91C1C)'
         };
       case 'reminder':
         return {
           label: 'Nhắc nhở',
-          color: '#F59E0B', // Màu vàng
-          accentBg: 'rgba(245, 158, 11, 0.12)',
-          badgeBorder: 'rgba(245, 158, 11, 0.4)',
-          badgeText: '#D97706',
-          cardBg: isRead ? 'var(--surface)' : 'rgba(245, 158, 11, 0.035)',
-          borderColor: '#F59E0B'
+          color: 'var(--warning, #B45309)',
+          accentBg: 'var(--warning-bg, #FFFBEB)',
+          badgeBorder: 'var(--warning-border, #FDE68A)',
+          badgeText: 'var(--warning-text, #78350F)',
+          cardBg: isRead ? 'var(--surface)' : 'rgba(180, 83, 9, 0.04)',
+          borderColor: 'var(--warning, #B45309)'
         };
       case 'normal':
       default:
         return {
           label: 'Bình thường',
-          color: '#2563EB', // Màu xanh nước biển
-          accentBg: 'rgba(37, 99, 235, 0.08)',
-          badgeBorder: 'rgba(37, 99, 235, 0.3)',
-          badgeText: '#2563EB',
-          cardBg: isRead ? 'var(--surface)' : 'rgba(37, 99, 235, 0.025)',
-          borderColor: '#2563EB'
+          color: 'var(--primary, #1D4ED8)',
+          accentBg: 'var(--primary-light, #EFF6FF)',
+          badgeBorder: 'var(--primary-border, #BFDBFE)',
+          badgeText: 'var(--primary, #1D4ED8)',
+          cardBg: isRead ? 'var(--surface)' : 'rgba(29, 78, 216, 0.03)',
+          borderColor: 'var(--primary, #1D4ED8)'
         };
     }
   };
@@ -162,9 +162,9 @@ export const StudentNotifications: React.FC = () => {
               type="button" 
               className={`btn btn-sm ${filter === 'warning' ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => setFilter('warning')}
-              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.875rem' }}
             >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#EF4444' }} />
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--danger, #B91C1C)' }} />
               <span>Cảnh báo ({warningCount})</span>
             </button>
 
@@ -172,9 +172,9 @@ export const StudentNotifications: React.FC = () => {
               type="button" 
               className={`btn btn-sm ${filter === 'reminder' ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => setFilter('reminder')}
-              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.875rem' }}
             >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--warning, #B45309)' }} />
               <span>Nhắc nhở ({reminderCount})</span>
             </button>
 
@@ -182,14 +182,14 @@ export const StudentNotifications: React.FC = () => {
               type="button" 
               className={`btn btn-sm ${filter === 'normal' ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => setFilter('normal')}
-              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.875rem' }}
             >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#2563EB' }} />
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--primary, #1D4ED8)' }} />
               <span>Bình thường ({normalCount})</span>
             </button>
           </div>
 
-          <button type="button" className="btn btn-secondary btn-sm" onClick={handleMarkAllRead}>
+          <button type="button" className="btn btn-secondary btn-sm" onClick={handleMarkAllRead} style={{ fontSize: '0.875rem' }}>
             <CheckCheck size={14} />
             <span>Đánh dấu đã đọc tất cả</span>
           </button>
@@ -210,11 +210,8 @@ export const StudentNotifications: React.FC = () => {
                 padding: '16px 20px', 
                 cursor: 'pointer',
                 backgroundColor: meta.cardBg,
-                // Thông báo bình thường: xanh nước biển; nhắc nhở: vàng; cảnh báo: đỏ
-                borderLeft: !n.read 
-                  ? `4px solid ${meta.borderColor}` 
-                  : '1px solid var(--border)',
-                transition: 'all 150ms ease-out'
+                border: !n.read ? `1px solid ${meta.borderColor}` : '1px solid var(--border)',
+                transition: 'border-color var(--transition-fast), background-color var(--transition-fast)'
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px', marginBottom: '6px' }}>
@@ -222,9 +219,9 @@ export const StudentNotifications: React.FC = () => {
                   {/* Badge danh mục theo mã màu tương ứng */}
                   <span 
                     style={{
-                      fontSize: '0.6875rem',
+                      fontSize: '0.75rem',
                       fontWeight: 600,
-                      padding: '2px 8px',
+                      padding: '2.5px 9px',
                       borderRadius: '999px',
                       backgroundColor: meta.accentBg,
                       color: meta.badgeText,
@@ -237,7 +234,7 @@ export const StudentNotifications: React.FC = () => {
 
                   <h3 
                     style={{
-                      fontSize: '0.875rem',
+                      fontSize: '0.9375rem',
                       fontWeight: n.read ? 600 : 700,
                       color: 'var(--text-primary)',
                       margin: 0,
@@ -249,8 +246,8 @@ export const StudentNotifications: React.FC = () => {
                     {!n.read && (
                       <span 
                         style={{
-                          width: '7px',
-                          height: '7px',
+                          width: '8px',
+                          height: '8px',
                           borderRadius: '50%',
                           backgroundColor: meta.borderColor,
                           display: 'inline-block',
@@ -263,17 +260,18 @@ export const StudentNotifications: React.FC = () => {
                   </h3>
                 </div>
 
-                <span className="text-xs text-muted" style={{ whiteSpace: 'nowrap', flexShrink: 0 }}>
+                <span className="text-xs text-muted" style={{ fontSize: '0.75rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
                   {n.time}
                 </span>
               </div>
 
               <p 
                 style={{ 
-                  fontSize: '0.8125rem', 
+                  fontSize: '0.875rem', 
                   color: 'var(--text-secondary)', 
-                  margin: '4px 0 0 0',
-                  lineHeight: 1.5 
+                  margin: '6px 0 0 0',
+                  lineHeight: 1.6,
+                  maxWidth: '720px'
                 }}
               >
                 {n.content}

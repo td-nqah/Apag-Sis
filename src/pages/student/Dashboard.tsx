@@ -254,12 +254,12 @@ export const StudentDashboard: React.FC = () => {
             </span>
             <span 
               style={{
-                fontSize: '0.6875rem',
+                fontSize: '0.75rem',
                 fontWeight: 600,
                 padding: '2px 8px',
                 borderRadius: '999px',
                 backgroundColor: 'var(--success-bg)',
-                color: 'var(--success)',
+                color: 'var(--success-text)',
                 border: '1px solid var(--success-border)'
               }}
             >
@@ -301,12 +301,12 @@ export const StudentDashboard: React.FC = () => {
             </span>
             <span 
               style={{
-                fontSize: '0.6875rem',
+                fontSize: '0.75rem',
                 fontWeight: 600,
                 padding: '2px 8px',
                 borderRadius: '999px',
                 backgroundColor: 'var(--success-bg)',
-                color: 'var(--success)',
+                color: 'var(--success-text)',
                 border: '1px solid var(--success-border)'
               }}
             >
@@ -348,7 +348,7 @@ export const StudentDashboard: React.FC = () => {
             </span>
             <span 
               style={{
-                fontSize: '0.6875rem',
+                fontSize: '0.75rem',
                 fontWeight: 600,
                 padding: '2px 8px',
                 borderRadius: '999px',
@@ -395,19 +395,19 @@ export const StudentDashboard: React.FC = () => {
             </span>
             <span 
               style={{
-                fontSize: '0.6875rem',
+                fontSize: '0.75rem',
                 fontWeight: 600,
                 padding: '2px 8px',
                 borderRadius: '999px',
                 backgroundColor: 'var(--success-bg)',
-                color: 'var(--success)',
+                color: 'var(--success-text)',
                 border: '1px solid var(--success-border)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '3px'
               }}
             >
-              <Check size={11} /> Bình thường
+              <Check size={12} /> Bình thường
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
@@ -416,7 +416,7 @@ export const StudentDashboard: React.FC = () => {
             </span>
           </div>
           <div style={{ marginTop: '10px', paddingTop: '10px', borderTop: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-            <span>Học phí: <strong style={{ color: 'var(--success)' }}>Đã hoàn thành</strong></span>
+            <span>Học phí: <strong style={{ color: 'var(--success-text)' }}>Đã hoàn thành</strong></span>
             <span style={{ color: 'var(--text-muted)' }}>Kỳ 1 • 24-25</span>
           </div>
         </div>
@@ -465,7 +465,7 @@ export const StudentDashboard: React.FC = () => {
             </div>
 
             {/* Compact Breakdown Pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '2px', backgroundColor: '#2563EB', display: 'inline-block' }} />
                 <span>Đại cương: <strong>51/51 TC (100%)</strong></span>
@@ -511,10 +511,10 @@ export const StudentDashboard: React.FC = () => {
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-secondary)', letterSpacing: '0.04em' }}>
+              <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-secondary)', letterSpacing: '0.02em' }}>
                 Cố vấn học tập trực tiếp
               </span>
-              <span style={{ fontSize: '0.6875rem', fontWeight: 600, padding: '2px 8px', borderRadius: '999px', backgroundColor: 'var(--success-bg)', color: 'var(--success)', border: '1px solid var(--success-border)' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, padding: '2px 8px', borderRadius: '999px', backgroundColor: 'var(--success-bg)', color: 'var(--success-text)', border: '1px solid var(--success-border)' }}>
                 Đang trực tuyến
               </span>
             </div>
@@ -529,13 +529,13 @@ export const StudentDashboard: React.FC = () => {
                 style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', border: '1.5px solid var(--border)' }}
               />
               <div>
-                <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                   TS. Nguyễn Năng Thành
                 </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                <div style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
                   Khoa Công nghệ & Quản trị số
                 </div>
-                <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', marginTop: '2px' }}>
+                <div style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--text-muted)', marginTop: '2px' }}>
                   P402, Nhà A1 • Trụ sở APAG (Lớp 25HTTB01)
                 </div>
               </div>
@@ -547,7 +547,7 @@ export const StudentDashboard: React.FC = () => {
               type="button" 
               className="btn btn-secondary btn-sm"
               onClick={() => Utils.showToast('Đã gửi thông báo đăng ký lịch tư vấn tới TS. Nguyễn Năng Thành (Lớp 25HTTB01).', 'success')}
-              style={{ flex: 1, justifyContent: 'center', fontSize: '0.75rem' }}
+              style={{ flex: 1, justifyContent: 'center', fontSize: '0.875rem' }}
             >
               📅 Đặt lịch hẹn
             </button>
@@ -555,7 +555,7 @@ export const StudentDashboard: React.FC = () => {
               type="button" 
               className="btn btn-outline btn-sm"
               onClick={() => setIsConsultModalOpen(true)}
-              style={{ flex: 1, justifyContent: 'center', fontSize: '0.75rem' }}
+              style={{ flex: 1, justifyContent: 'center', fontSize: '0.875rem' }}
             >
               ✉ Gửi đề nghị
             </button>
@@ -588,7 +588,7 @@ export const StudentDashboard: React.FC = () => {
                 <h2 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
                   Học phần đang học (Học kỳ 1 • 2024 - 2025)
                 </h2>
-                <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
                   Đang học {enrolledCourses.length} học phần · {enrolledCourses.reduce((sum, c) => sum + c.credits, 0)} Tín chỉ
                 </div>
               </div>
@@ -597,7 +597,7 @@ export const StudentDashboard: React.FC = () => {
                 {/* Page indicator */}
                 <span 
                   style={{ 
-                    fontSize: '0.6875rem', 
+                    fontSize: '0.75rem', 
                     fontWeight: 600, 
                     color: 'var(--text-secondary)', 
                     padding: '3px 8px', 
@@ -699,7 +699,7 @@ export const StudentDashboard: React.FC = () => {
                 >
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                      <span style={{ fontSize: '0.6875rem', fontWeight: 700, fontFamily: 'monospace', color: 'var(--primary)', backgroundColor: 'var(--primary-light)', padding: '2px 6px', borderRadius: '4px' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, fontFamily: 'monospace', color: 'var(--primary)', backgroundColor: 'var(--primary-light)', padding: '2px 8px', borderRadius: '4px' }}>
                         {c.code}
                       </span>
                       <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
@@ -707,37 +707,37 @@ export const StudentDashboard: React.FC = () => {
                       </span>
                     </div>
 
-                    <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px', lineHeight: 1.35, minHeight: '36px' }}>
+                    <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px', lineHeight: 1.4, minHeight: '38px' }}>
                       {c.name}
                     </div>
 
-                    <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)', marginBottom: '10px' }}>
+                    <div style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--text-secondary)', marginBottom: '10px' }}>
                       GV: {c.instructor}
                     </div>
                   </div>
 
                   <div>
                     {/* Progress Bar & Midterm Grade */}
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.6875rem', marginBottom: '4px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '4px' }}>
                       <span style={{ color: 'var(--text-secondary)' }}>Điểm quá trình:</span>
-                      <strong style={{ color: 'var(--primary)', fontSize: '0.75rem' }}>{c.midGrade}</strong>
+                      <strong style={{ color: 'var(--primary)', fontSize: '0.875rem' }}>{c.midGrade}</strong>
                     </div>
 
-                    <div style={{ height: '5px', backgroundColor: 'var(--surface)', borderRadius: '999px', overflow: 'hidden', border: '1px solid var(--border)', marginBottom: '10px' }}>
+                    <div style={{ height: '6px', backgroundColor: 'var(--surface)', borderRadius: '999px', overflow: 'hidden', border: '1px solid var(--border)', marginBottom: '10px' }}>
                       <div style={{ width: `${c.progress}%`, height: '100%', backgroundColor: 'var(--primary)' }}></div>
                     </div>
 
                     {/* 1-Click AI Study Buddy Prompt Chips */}
-                    <div style={{ paddingTop: '8px', borderTop: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <div style={{ paddingTop: '8px', borderTop: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '0.625rem', fontWeight: 700, color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '3px' }}>
-                          <Sparkles size={11} className="text-primary" />
+                        <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          <Sparkles size={13} className="text-primary" />
                           <span>AI Study Buddy:</span>
                         </span>
-                        <ArrowUpRight size={12} className="text-muted" />
+                        <ArrowUpRight size={13} className="text-muted" />
                       </div>
 
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                         <button
                           type="button"
                           onClick={(e) => {
@@ -747,9 +747,9 @@ export const StudentDashboard: React.FC = () => {
                             }));
                           }}
                           style={{
-                            fontSize: '0.625rem',
+                            fontSize: '0.875rem',
                             fontWeight: 600,
-                            padding: '2px 6px',
+                            padding: '4px 10px',
                             borderRadius: '6px',
                             backgroundColor: 'var(--surface)',
                             border: '1px solid var(--border)',
@@ -769,13 +769,13 @@ export const StudentDashboard: React.FC = () => {
                             }));
                           }}
                           style={{
-                            fontSize: '0.625rem',
+                            fontSize: '0.875rem',
                             fontWeight: 600,
-                            padding: '2px 6px',
+                            padding: '4px 10px',
                             borderRadius: '6px',
-                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                            border: '1px solid rgba(16, 185, 129, 0.3)',
-                            color: 'var(--success)',
+                            backgroundColor: 'var(--success-bg)',
+                            border: '1px solid var(--success-border)',
+                            color: 'var(--success-text)',
                             cursor: 'pointer'
                           }}
                         >
@@ -791,9 +791,9 @@ export const StudentDashboard: React.FC = () => {
                             }));
                           }}
                           style={{
-                            fontSize: '0.625rem',
+                            fontSize: '0.875rem',
                             fontWeight: 600,
-                            padding: '2px 6px',
+                            padding: '4px 10px',
                             borderRadius: '6px',
                             backgroundColor: 'var(--surface)',
                             border: '1px solid var(--border)',
@@ -841,7 +841,7 @@ export const StudentDashboard: React.FC = () => {
                 <Clock size={16} className="text-primary" />
                 <span>Lịch học & Sự kiện hôm nay</span>
               </h2>
-              <span style={{ fontSize: '0.6875rem', fontWeight: 700, padding: '2px 6px', borderRadius: '4px', backgroundColor: 'var(--surface-subtle)', color: 'var(--text-secondary)' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--surface-subtle)', color: 'var(--text-secondary)' }}>
                 Hôm nay
               </span>
             </div>
@@ -851,23 +851,26 @@ export const StudentDashboard: React.FC = () => {
               {/* Event 1 */}
               <div 
                 style={{
-                  padding: '10px 12px',
-                  borderRadius: '8px',
+                  padding: '12px 14px',
+                  borderRadius: '10px',
                   backgroundColor: 'var(--primary-light)',
-                  borderLeft: '3px solid var(--primary)',
+                  border: '1px solid var(--primary-border)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '2px'
+                  gap: '6px'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)' }}>08:00 - 11:15 • Sắp diễn ra</span>
-                  <span style={{ fontSize: '0.6875rem', padding: '1px 5px', borderRadius: '4px', backgroundColor: 'var(--surface)', color: 'var(--primary)', fontWeight: 600 }}>P402, Nhà A1</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--primary)', display: 'inline-block' }} />
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)' }}>08:00 - 11:15 • Sắp diễn ra</span>
+                  </div>
+                  <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--surface)', color: 'var(--primary)', fontWeight: 600 }}>P402, Nhà A1</span>
                 </div>
-                <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                   LIF2003 - Phân tích & Thiết kế HTTT
                 </div>
-                <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                <div style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
                   Giảng viên: TS. Nguyễn Năng Thành
                 </div>
               </div>
@@ -875,23 +878,26 @@ export const StudentDashboard: React.FC = () => {
               {/* Event 2 */}
               <div 
                 style={{
-                  padding: '10px 12px',
-                  borderRadius: '8px',
+                  padding: '12px 14px',
+                  borderRadius: '10px',
                   backgroundColor: 'var(--surface-subtle)',
-                  borderLeft: '3px solid var(--border)',
+                  border: '1px solid var(--border)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '2px'
+                  gap: '6px'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)' }}>13:30 - 16:45 • Ca chiều</span>
-                  <span style={{ fontSize: '0.6875rem', padding: '1px 5px', borderRadius: '4px', backgroundColor: 'var(--surface)', color: 'var(--text-secondary)' }}>Lab 302, Nhà C</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--text-muted)', display: 'inline-block' }} />
+                    <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)' }}>13:30 - 16:45 • Ca chiều</span>
+                  </div>
+                  <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--surface)', color: 'var(--text-secondary)' }}>Lab 302, Nhà C</span>
                 </div>
-                <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+                <div style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)' }}>
                   LIF2113 - Mạng máy tính
                 </div>
-                <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                <div style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
                   Giảng viên: ThS. Nguyễn Văn Bình
                 </div>
               </div>
@@ -899,20 +905,23 @@ export const StudentDashboard: React.FC = () => {
               {/* Upcoming Deadline */}
               <div 
                 style={{
-                  padding: '10px 12px',
-                  borderRadius: '8px',
+                  padding: '12px 14px',
+                  borderRadius: '10px',
                   backgroundColor: 'var(--danger-bg)',
-                  borderLeft: '3px solid var(--danger)',
+                  border: '1px solid var(--danger-border)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '2px'
+                  gap: '6px'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--danger)' }}>15/10/2024 • Đếm ngược 1 ngày</span>
-                  <span style={{ fontSize: '0.6875rem', color: 'var(--danger)', fontWeight: 700 }}>Hạn chót</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--danger)', display: 'inline-block' }} />
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--danger)' }}>15/10/2024 • Đếm ngược 1 ngày</span>
+                  </div>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--danger)', fontWeight: 700 }}>Hạn chót</span>
                 </div>
-                <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--danger-text)' }}>
+                <div style={{ fontSize: '0.875rem', lineHeight: 1.5, fontWeight: 700, color: 'var(--danger-text)' }}>
                   Hạn nộp đăng ký đợt thi Chuẩn đầu ra VSTEP B1
                 </div>
               </div>
@@ -962,7 +971,7 @@ export const StudentDashboard: React.FC = () => {
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', borderBottom: '1px solid var(--border)', paddingBottom: '12px' }}>
               <div>
-                <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--primary)', backgroundColor: 'var(--primary-light)', padding: '2px 6px', borderRadius: '4px' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', backgroundColor: 'var(--primary-light)', padding: '2px 8px', borderRadius: '4px' }}>
                   {selectedCourse.code}
                 </span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', margin: '6px 0 2px' }}>
@@ -988,15 +997,15 @@ export const StudentDashboard: React.FC = () => {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', textAlign: 'center' }}>
                 <div style={{ padding: '10px', backgroundColor: 'var(--surface-subtle)', borderRadius: '8px', border: '1px solid var(--border)' }}>
-                  <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>Chuyên cần (10%)</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Chuyên cần (10%)</div>
                   <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{selectedCourse.attendance}</div>
                 </div>
                 <div style={{ padding: '10px', backgroundColor: 'var(--surface-subtle)', borderRadius: '8px', border: '1px solid var(--border)' }}>
-                  <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>Bài tập / BTL (20%)</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Bài tập / BTL (20%)</div>
                   <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{selectedCourse.assignment}</div>
                 </div>
                 <div style={{ padding: '10px', backgroundColor: 'var(--primary-light)', borderRadius: '8px', border: '1px solid var(--primary-border)' }}>
-                  <div style={{ fontSize: '0.6875rem', color: 'var(--primary)', fontWeight: 600 }}>Điểm giữa kỳ (20%)</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}>Điểm giữa kỳ (20%)</div>
                   <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--primary)', marginTop: '2px' }}>{selectedCourse.midGrade}</div>
                 </div>
               </div>

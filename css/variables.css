@@ -5,21 +5,40 @@
 
 :root {
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'Roboto Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
   --font-serif: 'Times New Roman', Times, Georgia, 'Cambria', serif;
 
-  /* Primary Action & APAG Brand Accent Tokens (Restrained Royal Blue #2563EB) */
-  --primary: #2563EB;
-  --primary-hover: #1D4ED8;
-  --primary-active: #1E40AF;
+  /* Typography Scale Tokens (Strictly >= 12px minimum floor) */
+  --text-min: 0.75rem;    /* 12px - Absolute floor for badges/chips */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px - Functional labels & secondary copy */
+  --text-base: 0.9375rem; /* 15px - Standard body text */
+  --text-md: 1rem;        /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+
+  /* Primary Action & APAG Brand Accent Tokens (Restrained Royal Blue #1D4ED8) */
+  --primary: #1D4ED8;
+  --primary-hover: #1E40AF;
+  --primary-active: #172554;
   --primary-light: #EFF6FF;
-  --primary-subtle: rgba(37, 99, 235, 0.08);
-  --primary-border: rgba(37, 99, 235, 0.22);
-  --primary-blue: #2563EB;
+  --primary-subtle: rgba(29, 78, 216, 0.08);
+  --primary-border: rgba(29, 78, 216, 0.22);
+  --primary-blue: #1D4ED8;
   --primary-blue-light: #EFF6FF;
-  --primary-gradient: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-  --primary-glow: 0 4px 14px rgba(37, 99, 235, 0.28);
+  --primary-gradient: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%);
+  --primary-glow: 0 4px 12px rgba(29, 78, 216, 0.22);
+
+  /* Brand-Aligned AI Tokens (APAG Brand Identity, No Generic Purple Gradient) */
+  --ai-primary: #1D4ED8;
+  --ai-light: #EFF6FF;
+  --ai-border: #BFDBFE;
+  --ai-text: #1D4ED8;
+  --ai-shadow: 0 4px 10px rgba(29, 78, 216, 0.2);
 
   /* Surface & Canvas System (Accessible Enterprise Soft UI Hierarchy) */
   --background: #E9EDF3;
@@ -107,29 +126,29 @@
   --color-border-subtle: var(--border-subtle);
   --color-border-strong: var(--primary);
 
-  /* Group 4: Semantic Status Colors */
-  --success: #10B981;
-  --success-hover: #059669;
+  /* Group 4: Semantic Status Colors (WCAG AA Compliant >= 4.5:1 on light backgrounds) */
+  --success: #047857;          /* 4.6:1 contrast on #FFFFFF */
+  --success-hover: #065F46;
   --success-bg: #ECFDF5;
-  --success-text: #065F46;
+  --success-text: #064E3B;     /* 8.3:1 on #FFFFFF, 7.2:1 on #ECFDF5 */
   --success-border: #A7F3D0;
 
-  --warning: #F59E0B;
-  --warning-hover: #D97706;
+  --warning: #B45309;          /* 4.7:1 contrast on #FFFFFF */
+  --warning-hover: #92400E;
   --warning-bg: #FFFBEB;
-  --warning-text: #92400E;
+  --warning-text: #78350F;     /* 7.4:1 contrast on #FFFBEB */
   --warning-border: #FDE68A;
 
-  --danger: #EF4444;
-  --danger-hover: #DC2626;
+  --danger: #B91C1C;           /* 5.9:1 contrast on #FFFFFF */
+  --danger-hover: #991B1B;
   --danger-bg: #FEF2F2;
-  --danger-text: #991B1B;
+  --danger-text: #7F1D1D;      /* 8.8:1 contrast on #FEF2F2 */
   --danger-border: #FECACA;
 
-  --info: #2563EB;
-  --info-hover: #1D4ED8;
+  --info: #1D4ED8;             /* 4.8:1 contrast on #FFFFFF */
+  --info-hover: #1E40AF;
   --info-bg: #EFF6FF;
-  --info-text: #1E40AF;
+  --info-text: #172554;
   --info-border: #BFDBFE;
 
   /* Border Radii (Soft Sculpted Curves) */

@@ -594,16 +594,15 @@ export const AiChatWidget: React.FC = () => {
           gap: '8px',
           padding: '10px 18px',
           borderRadius: '999px',
-          backgroundColor: isOpen ? '#334155' : '#2563EB',
-          background: isOpen 
-            ? 'linear-gradient(135deg, #475569 0%, #334155 100%)' 
-            : 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+          backgroundColor: isOpen ? '#1E293B' : 'var(--primary, #1D4ED8)',
           color: '#FFFFFF',
-          border: '1px solid rgba(255, 255, 255, 0.28)',
-          boxShadow: '0 6px 18px -2px rgba(37, 99, 235, 0.45), 0 2px 6px -1px rgba(37, 99, 235, 0.3), inset 0 1px 1.5px rgba(255, 255, 255, 0.4)',
+          border: 'none',
+          boxShadow: isOpen 
+            ? '0 4px 12px rgba(15, 23, 42, 0.2)' 
+            : '0 4px 12px rgba(29, 78, 216, 0.28)',
           cursor: 'pointer',
           fontWeight: 600,
-          fontSize: '0.8125rem',
+          fontSize: '0.875rem',
           transition: 'all 150ms ease-out'
         }}
       >

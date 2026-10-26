@@ -628,11 +628,11 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 2.5px 9px;
+  padding: 3px 10px;
   border-radius: var(--radius-pill);
-  font-size: 0.72rem; /* 11.5px */
+  font-size: 0.75rem; /* 12px minimum floor */
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
   border: 1px solid transparent;
   white-space: nowrap;
 }
@@ -709,14 +709,14 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.6875rem;
+  font-size: 0.75rem; /* 12px minimum floor */
   font-weight: 600;
   border: 1px solid rgba(208, 218, 232, 0.8);
 }
 
 .badge-xs {
-  padding: 1.5px 6px;
-  font-size: 0.6875rem;
+  padding: 2px 7px;
+  font-size: 0.75rem; /* 12px minimum floor */
 }
 
 /* ==========================================================================
@@ -727,10 +727,10 @@ textarea {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: var(--surface, #F5F7FA);
-  border-radius: var(--radius-card, 14px);
-  box-shadow: var(--shadow-card);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
 }
 
 .minimal-table,
@@ -773,11 +773,10 @@ table tr:first-child th {
   background-color: #E2E8F0;
   color: var(--text-secondary, #52627A);
   font-weight: 600;
-  font-size: 0.78125rem; /* 12.5px */
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-size: 0.8125rem; /* 13px */
+  letter-spacing: 0.02em;
   border-bottom: 1px solid #CBD5E1;
-  padding: 10px 14px;
+  padding: 12px 16px;
   white-space: nowrap;
 }
 
@@ -788,10 +787,11 @@ table tr:first-child th {
 .regulations-check-table td,
 table td {
   border-bottom: 1px solid rgba(222, 230, 242, 0.65);
-  padding: 11px 14px;
+  padding: 12px 16px;
   color: var(--text-primary);
   vertical-align: middle;
   background-color: transparent;
+  font-size: 0.875rem; /* 14px */
 }
 
 /* Row Hover */
@@ -825,7 +825,8 @@ table tbody tr:hover td {
   background: var(--primary-gradient);
   box-shadow: 0 1px 4px rgba(37, 99, 235, 0.3);
   border-radius: var(--radius-pill);
-  transition: width var(--transition-normal);
+  transform-origin: left;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
 }
 
 .progress-bar-fill.bg-success { background: linear-gradient(135deg, #10B981, #059669); }
