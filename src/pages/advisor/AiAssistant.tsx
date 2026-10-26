@@ -113,7 +113,7 @@ export const AdvisorAiAssistant: React.FC = () => {
                   rows={14} 
                   value={generatedDraft}
                   onChange={(e) => setGeneratedDraft(e.target.value)}
-                  style={{ flex: 1, minHeight: '220px', width: '100%', fontSize: '0.8125rem', lineHeight: '1.6', resize: 'vertical' }}
+                  style={{ flex: 1, minHeight: '220px', width: '100%', fontSize: '0.875rem', lineHeight: '1.6', resize: 'vertical' }}
                 />
               ) : (
                 <div className="text-center text-muted" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 0' }}>

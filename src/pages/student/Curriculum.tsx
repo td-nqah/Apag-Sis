@@ -232,7 +232,7 @@ export const StudentCurriculum: React.FC = () => {
                           {c.prerequisites && c.prerequisites.length > 0 ? (
                             <div className="d-flex gap-1 flex-wrap">
                               {c.prerequisites.map(p => (
-                                <span key={p} className="badge badge-outline" style={{ fontSize: '0.6875rem' }}>{p}</span>
+                                <span key={p} className="badge badge-outline" style={{ fontSize: '0.75rem' }}>{p}</span>
                               ))}
                             </div>
                           ) : (

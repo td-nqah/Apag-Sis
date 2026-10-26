@@ -259,14 +259,14 @@ export const SkillTree: React.FC = () => {
             <h3 style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
               Sơ đồ Lộ trình Học phần (Cây học phần & Tiên quyết)
             </h3>
-            <span style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
               Mạng lưới quan hệ tiên quyết & Tiến độ tích lũy học phần
             </span>
           </div>
         </div>
 
         {/* Legend */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.6875rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.75rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10B981' }} />
             <span style={{ color: 'var(--text-secondary)' }}>Đã tích lũy</span>
@@ -316,7 +316,7 @@ export const SkillTree: React.FC = () => {
                 <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-primary)', display: 'block' }}>
                   {phase.title}
                 </span>
-                <span style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                   {phase.sub}
                 </span>
               </div>
@@ -372,7 +372,7 @@ export const SkillTree: React.FC = () => {
                           <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-primary)', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
                             {node.code}
                           </div>
-                          <div style={{ fontSize: '0.625rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
                             {node.name}
                           </div>
                         </div>
@@ -381,19 +381,19 @@ export const SkillTree: React.FC = () => {
                       {/* Right Tag */}
                       <div style={{ flexShrink: 0, textAlign: 'right' }}>
                         {node.status === 'passed' ? (
-                          <span style={{ fontSize: '0.6875rem', fontWeight: 800, color: 'var(--success)' }}>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--success)' }}>
                             {node.grade}
                           </span>
                         ) : node.status === 'enrolled' ? (
-                          <span style={{ fontSize: '0.625rem', fontWeight: 700, color: 'var(--primary)' }}>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)' }}>
                             3 TC
                           </span>
                         ) : node.status === 'recommended' ? (
-                          <span style={{ fontSize: '0.625rem', fontWeight: 700, color: '#8B5CF6' }}>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#8B5CF6' }}>
                             Gợi ý
                           </span>
                         ) : (
-                          <span style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>
+                          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                             Chưa đủ ĐK
                           </span>
                         )}
@@ -478,13 +478,13 @@ export const SkillTree: React.FC = () => {
 
             {/* Prerequisites */}
             <div style={{ marginBottom: '14px', background: 'var(--surface-subtle)', padding: '10px 12px', borderRadius: '10px' }}>
-              <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-secondary)', display: 'block', marginBottom: '4px' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', display: 'block', marginBottom: '4px' }}>
                 ĐIỀU KIỆN TIÊN QUYẾT:
               </span>
               {selectedNode.prerequisites.length > 0 ? (
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                   {selectedNode.prerequisites.map((pre, idx) => (
-                    <span key={idx} className="badge badge-info" style={{ fontSize: '0.6875rem' }}>
+                    <span key={idx} className="badge badge-info" style={{ fontSize: '0.75rem' }}>
                       {pre}
                     </span>
                   ))}
@@ -496,7 +496,7 @@ export const SkillTree: React.FC = () => {
 
             {/* Description */}
             <div style={{ marginBottom: '16px' }}>
-              <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-secondary)', display: 'block', marginBottom: '4px' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', display: 'block', marginBottom: '4px' }}>
                 NỘI DUNG TÓM TẮT:
               </span>
               <p style={{ fontSize: '0.8125rem', color: 'var(--text-primary)', margin: 0, lineHeight: 1.5 }}>

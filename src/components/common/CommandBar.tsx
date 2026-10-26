@@ -202,7 +202,7 @@ export const CommandBar: React.FC<CommandBarProps> = ({ isOpen, onClose }) => {
           ) : (
             <kbd 
               style={{
-                fontSize: '0.6875rem',
+                fontSize: '0.75rem',
                 padding: '2px 6px',
                 borderRadius: '4px',
                 background: 'var(--surface-subtle)',
@@ -290,7 +290,7 @@ export const CommandBar: React.FC<CommandBarProps> = ({ isOpen, onClose }) => {
                     {item.badge && (
                       <span 
                         style={{
-                          fontSize: '0.6875rem',
+                          fontSize: '0.75rem',
                           padding: '2px 8px',
                           borderRadius: '999px',
                           backgroundColor: item.badge.includes('Nguy cơ') ? 'var(--danger-bg)' : item.badge.includes('Cảnh báo') ? 'var(--warning-bg)' : 'var(--surface-subtle)',

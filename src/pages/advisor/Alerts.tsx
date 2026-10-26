@@ -309,10 +309,10 @@ export const AdvisorAlerts: React.FC = () => {
                         <td style={{ textAlign: 'right' }}>
                           <span className="text-xs font-semibold">{s.credits} / 130</span>
                         </td>
-                        <td className="text-secondary text-xs">
+                        <td className="text-secondary" style={{ maxWidth: '320px', whiteSpace: 'normal', wordBreak: 'break-word', lineHeight: 1.5, fontSize: '0.875rem' }}>
                           <div>{s.riskReason || (s as any).alertReason || 'Chưa tích lũy học phần tiên quyết hoặc chậm tiến độ'}</div>
                           {s.intervention && (
-                            <div className="text-muted mt-1" style={{ fontStyle: 'italic' }}>
+                            <div className="text-muted mt-1" style={{ fontStyle: 'italic', fontSize: '0.75rem' }}>
                               • KH: {s.intervention.actionPlan}
                             </div>
                           )}

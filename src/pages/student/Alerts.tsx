@@ -229,7 +229,7 @@ export const StudentAlerts: React.FC = () => {
                           <h3 className="font-bold text-sm text-danger">Chưa hoàn thành Học phần tiên quyết LIF2004 (Hệ quản trị cơ sở dữ liệu)</h3>
                           <span className="badge badge-danger">Ưu tiên 1</span>
                         </div>
-                        <p className="text-xs text-secondary mb-2">
+                        <p className="text-secondary mb-2" style={{ fontSize: '0.875rem', lineHeight: 1.55 }}>
                           Học phần này là điều kiện tiên quyết bắt buộc để học Khai phá dữ liệu (HK6) và Khóa luận tốt nghiệp (HK8).
                         </p>
                         <div className="d-flex items-center gap-2">
@@ -247,7 +247,7 @@ export const StudentAlerts: React.FC = () => {
                           <h3 className="font-bold text-sm text-warning">Chưa nộp chứng chỉ Ngoại ngữ chuẩn đầu ra B1 (VSTEP / IELTS)</h3>
                           <span className="badge badge-warning">Ưu tiên 2</span>
                         </div>
-                        <p className="text-xs text-secondary mb-2">
+                        <p className="text-secondary mb-2" style={{ fontSize: '0.875rem', lineHeight: 1.55 }}>
                           Theo QĐ 120/QĐ-HVHC, sinh viên phải nộp chứng chỉ trước HK7 để đủ điều kiện xét Thực tập tốt nghiệp.
                         </p>
                         <div className="d-flex items-center gap-2">
@@ -654,10 +654,10 @@ export const StudentAlerts: React.FC = () => {
                     <Sparkles size={16} className="text-primary" />
                     <span className="font-bold text-main text-xs">Giải trình mô hình AI & Kế hoạch hỗ trợ học tập:</span>
                   </div>
-                  <p className="text-xs text-secondary mb-2">
+                  <p className="text-secondary mb-2" style={{ fontSize: '0.875rem', lineHeight: 1.55 }}>
                     Hệ thống phân định rõ: <strong>Dữ liệu thực tế</strong> chứng minh kết quả học tập của bạn hoàn toàn tốt (CPA 3.24, không có học phần chưa đạt). Tuy nhiên, <strong>suy luận của mô hình dự báo</strong> cho thấy rủi ro chậm tiến độ tập trung vào việc chưa hoàn thành học phần tiên quyết LIF2004 và chứng chỉ B1.
                   </p>
-                  <p className="text-xs text-primary font-semibold mb-0">
+                  <p className="text-primary font-semibold mb-0" style={{ fontSize: '0.875rem', lineHeight: 1.55 }}>
                     💡 Kế hoạch hỗ trợ học tập: Khi bạn hoàn thành học phần tiên quyết LIF2004 trong HK6 và nộp chứng chỉ B1 trước tháng 12/2026, xác suất dự báo chậm tiến độ giảm từ 82% xuống dưới 15% (Mức độ rủi ro thấp).
                   </p>
                 </div>

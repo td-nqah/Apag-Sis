@@ -55,10 +55,10 @@ export const AdminReports: React.FC = () => {
     { grade: 'A (8.5 - 10)', students: 340, percentage: 14.5, fill: '#2563EB' },
     { grade: 'B+ (8.0 - 8.4)', students: 520, percentage: 22.1, fill: '#3B82F6' },
     { grade: 'B (7.0 - 7.9)', students: 680, percentage: 28.9, fill: '#0D9488' },
-    { grade: 'C+ (6.5 - 6.9)', students: 390, percentage: 16.6, fill: '#10B981' },
-    { grade: 'C (5.5 - 6.4)', students: 260, percentage: 11.1, fill: '#F59E0B' },
-    { grade: 'D (4.0 - 5.4)', students: 110, percentage: 4.7, fill: '#F97316' },
-    { grade: 'F (< 4.0)', students: 50, percentage: 2.1, fill: '#EF4444' }
+    { grade: 'C+ (6.5 - 6.9)', students: 390, percentage: 16.6, fill: '#047857' },
+    { grade: 'C (5.5 - 6.4)', students: 260, percentage: 11.1, fill: '#B45309' },
+    { grade: 'D (4.0 - 5.4)', students: 110, percentage: 4.7, fill: '#C2410C' },
+    { grade: 'F (< 4.0)', students: 50, percentage: 2.1, fill: '#B91C1C' }
   ];
 
   // Attendance & Passing Rate Historical Trends Dataset
@@ -306,7 +306,7 @@ export const AdminReports: React.FC = () => {
             <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
               Quy mô sinh viên
             </span>
-            <span style={{ fontSize: '0.6875rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--primary-light)', color: 'var(--primary)' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--primary-light)', color: 'var(--primary)' }}>
               {drillData.scopeBadge}
             </span>
           </div>
@@ -334,7 +334,7 @@ export const AdminReports: React.FC = () => {
             <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
               GPA Trung bình
             </span>
-            <span style={{ fontSize: '0.6875rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--success-bg)', color: 'var(--success)', border: '1px solid var(--success-border)' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--success-bg)', color: 'var(--success)', border: '1px solid var(--success-border)' }}>
               Khá - Giỏi
             </span>
           </div>
@@ -362,7 +362,7 @@ export const AdminReports: React.FC = () => {
             <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
               Sinh viên rủi ro
             </span>
-            <span style={{ fontSize: '0.6875rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--warning-bg)', color: 'var(--warning-text)', border: '1px solid var(--warning-border)' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--warning-bg)', color: 'var(--warning-text)', border: '1px solid var(--warning-border)' }}>
               {drillData.atRiskPct}%
             </span>
           </div>
@@ -390,7 +390,7 @@ export const AdminReports: React.FC = () => {
             <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
               Đúng tiến độ (On-track)
             </span>
-            <span style={{ fontSize: '0.6875rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--success-bg)', color: 'var(--success)', border: '1px solid var(--success-border)' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--success-bg)', color: 'var(--success)', border: '1px solid var(--success-border)' }}>
               Đạt chỉ tiêu
             </span>
           </div>
@@ -433,7 +433,7 @@ export const AdminReports: React.FC = () => {
                 Phân bố sinh viên theo thang điểm chữ A, B+, B, C+, C, D, F
               </span>
             </div>
-            <span style={{ fontSize: '0.6875rem', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'var(--primary-light)', color: 'var(--primary)', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.75rem', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'var(--primary-light)', color: 'var(--primary)', fontWeight: 600 }}>
               2.350 SV
             </span>
           </div>
@@ -477,7 +477,7 @@ export const AdminReports: React.FC = () => {
                 Giám sát tỷ lệ đi học chuyên cần và kết quả thi qua 5 học kỳ gần nhất
               </span>
             </div>
-            <span style={{ fontSize: '0.6875rem', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'var(--success-bg)', color: 'var(--success)', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.75rem', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'var(--success-bg)', color: 'var(--success)', fontWeight: 600 }}>
               96.8% Đi học
             </span>
           </div>
@@ -499,7 +499,7 @@ export const AdminReports: React.FC = () => {
                   verticalAlign="top" 
                   align="right" 
                   iconType="circle"
-                  wrapperStyle={{ fontSize: '11px', paddingBottom: '10px' }}
+                  wrapperStyle={{ fontSize: '12px', paddingBottom: '10px' }}
                 />
                 <Line 
                   type="monotone" 
@@ -514,9 +514,9 @@ export const AdminReports: React.FC = () => {
                   type="monotone" 
                   dataKey="passRate" 
                   name="Tỷ lệ Đạt học phần (%)"
-                  stroke="#10B981" 
+                  stroke="#047857" 
                   strokeWidth={2.5}
-                  dot={{ r: 4, fill: '#10B981' }}
+                  dot={{ r: 4, fill: '#047857' }}
                   activeDot={{ r: 6 }}
                 />
               </LineChart>
@@ -582,7 +582,7 @@ export const AdminReports: React.FC = () => {
               {drillData.tableSubheading}
             </span>
           </div>
-          <span style={{ fontSize: '0.6875rem', padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--surface-subtle)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}>
+          <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--surface-subtle)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}>
             {drillData.tableRows.length} đơn vị
           </span>
         </div>
@@ -611,7 +611,7 @@ export const AdminReports: React.FC = () => {
                     {row.avgGpa.toFixed(2)}
                   </td>
                   <td style={{ padding: '10px 14px', textAlign: 'right' }}>
-                    <span style={{ fontSize: '0.6875rem', padding: '2px 8px', borderRadius: '999px', backgroundColor: row.atRisk > 20 ? 'var(--danger-bg)' : 'var(--warning-bg)', color: row.atRisk > 20 ? 'var(--danger)' : 'var(--warning-text)', border: `1px solid ${row.atRisk > 20 ? 'var(--danger-border)' : 'var(--warning-border)'}` }}>
+                    <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '999px', backgroundColor: row.atRisk > 20 ? 'var(--danger-bg)' : 'var(--warning-bg)', color: row.atRisk > 20 ? 'var(--danger)' : 'var(--warning-text)', border: `1px solid ${row.atRisk > 20 ? 'var(--danger-border)' : 'var(--warning-border)'}` }}>
                       {row.atRisk} SV ({((row.atRisk / row.total) * 100).toFixed(1)}%)
                     </span>
                   </td>

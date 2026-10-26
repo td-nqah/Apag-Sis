@@ -180,7 +180,7 @@ export const Login: React.FC = () => {
               <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
                 Tài khoản trải nghiệm demo:
               </span>
-              <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                 Click để chọn & đăng nhập
               </span>
             </div>

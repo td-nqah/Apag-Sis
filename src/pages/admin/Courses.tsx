@@ -545,7 +545,7 @@ export const AdminCourses: React.FC = () => {
                           >
                             {course.name}
                           </div>
-                          <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                             {course.category} • {course.department}
                           </div>
                         </td>
@@ -571,7 +571,7 @@ export const AdminCourses: React.FC = () => {
                         <td style={{ padding: '10px 12px' }}>
                           <span 
                             style={{
-                              fontSize: '0.6875rem',
+                              fontSize: '0.75rem',
                               fontWeight: 600,
                               padding: '2px 8px',
                               borderRadius: '999px',
@@ -586,7 +586,7 @@ export const AdminCourses: React.FC = () => {
 
                         <td style={{ padding: '10px 12px', textAlign: 'right' }}>
                           <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--success)' }}>{course.passRate}%</span>
-                          <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}> / </span>
+                          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}> / </span>
                           <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--danger)' }}>{course.failRate}%</span>
                         </td>
 
@@ -595,7 +595,7 @@ export const AdminCourses: React.FC = () => {
                             type="button"
                             className="btn btn-outline btn-xs"
                             onClick={() => setSelectedCourseDetail(course)}
-                            style={{ fontSize: '0.6875rem', padding: '3px 8px' }}
+                            style={{ fontSize: '0.75rem', padding: '3px 8px' }}
                           >
                             Chi tiết
                           </button>
@@ -629,7 +629,7 @@ export const AdminCourses: React.FC = () => {
             >
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--primary)', backgroundColor: 'var(--primary-light)', padding: '2px 6px', borderRadius: '4px' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', backgroundColor: 'var(--primary-light)', padding: '2px 6px', borderRadius: '4px' }}>
                     {dept.code}
                   </span>
                   <button 
@@ -660,22 +660,22 @@ export const AdminCourses: React.FC = () => {
 
                 <div style={{ display: 'flex', gap: '12px', padding: '10px', backgroundColor: 'var(--surface-subtle)', borderRadius: '8px', border: '1px solid var(--border)', textAlign: 'center', marginBottom: '12px' }}>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Giảng viên</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Giảng viên</div>
                     <div style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--text-primary)' }}>{dept.facultyCount}</div>
                   </div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Sinh viên</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Sinh viên</div>
                     <div style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--primary)' }}>{dept.studentCount}</div>
                   </div>
                 </div>
 
                 <div>
-                  <div style={{ fontSize: '0.6875rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '4px' }}>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '4px' }}>
                     Chuyên ngành đào tạo:
                   </div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                     {dept.majors.map((m, i) => (
-                      <span key={i} style={{ fontSize: '0.6875rem', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'var(--surface-subtle)', border: '1px solid var(--border)' }}>
+                      <span key={i} style={{ fontSize: '0.75rem', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'var(--surface-subtle)', border: '1px solid var(--border)' }}>
                         {m}
                       </span>
                     ))}
@@ -720,7 +720,7 @@ export const AdminCourses: React.FC = () => {
             {/* Header */}
             <div style={{ padding: '20px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <div>
-                <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--primary)', backgroundColor: 'var(--primary-light)', padding: '2px 6px', borderRadius: '4px' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', backgroundColor: 'var(--primary-light)', padding: '2px 6px', borderRadius: '4px' }}>
                   {selectedCourseDetail.code}
                 </span>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', margin: '6px 0 2px' }}>
@@ -744,15 +744,15 @@ export const AdminCourses: React.FC = () => {
               {/* Quick Info Grid */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', textAlign: 'center' }}>
                 <div style={{ padding: '10px', borderRadius: '8px', backgroundColor: 'var(--surface-subtle)', border: '1px solid var(--border)' }}>
-                  <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Số tín chỉ</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Số tín chỉ</div>
                   <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selectedCourseDetail.credits} TC</div>
                 </div>
                 <div style={{ padding: '10px', borderRadius: '8px', backgroundColor: 'var(--surface-subtle)', border: '1px solid var(--border)' }}>
-                  <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Trạng thái</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Trạng thái</div>
                   <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--primary)', marginTop: '2px' }}>{selectedCourseDetail.statusLabel}</div>
                 </div>
                 <div style={{ padding: '10px', borderRadius: '8px', backgroundColor: 'var(--surface-subtle)', border: '1px solid var(--border)' }}>
-                  <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Điểm TB</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Điểm TB</div>
                   <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--primary)' }}>{selectedCourseDetail.avgScore}</div>
                 </div>
               </div>
@@ -813,11 +813,11 @@ export const AdminCourses: React.FC = () => {
                       >
                         <div>
                           <strong>{std.name}</strong> <span style={{ color: 'var(--text-muted)' }}>({std.studentId})</span>
-                          <div style={{ color: 'var(--text-secondary)', fontSize: '0.6875rem' }}>Lớp: {std.class}</div>
+                          <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem' }}>Lớp: {std.class}</div>
                         </div>
                         <div style={{ textAlign: 'right' }}>
                           <span style={{ color: 'var(--primary)', fontWeight: 700 }}>GK: {std.midterm}</span>
-                          <span style={{ color: 'var(--text-muted)', fontSize: '0.6875rem', marginLeft: '6px' }}>CC: {std.attendance}</span>
+                          <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginLeft: '6px' }}>CC: {std.attendance}</span>
                         </div>
                       </div>
                     ))}

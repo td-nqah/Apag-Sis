@@ -327,7 +327,7 @@ export const StudentTimetable: React.FC = () => {
                 </button>
               </div>
 
-              <span style={{ fontSize: '0.6875rem', fontWeight: 600, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--primary-light)', color: 'var(--primary)' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--primary-light)', color: 'var(--primary)' }}>
                 Học kỳ 1 • 2024-2025
               </span>
             </div>
@@ -398,7 +398,7 @@ export const StudentTimetable: React.FC = () => {
                     <div style={{ fontSize: '0.75rem', fontWeight: 700, color: d.dayNumber === 2 ? 'var(--primary)' : 'var(--text-primary)' }}>
                       {d.label}
                     </div>
-                    <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                       {d.date}
                     </div>
                   </div>
@@ -408,7 +408,7 @@ export const StudentTimetable: React.FC = () => {
               {/* Slots Row (Morning / Afternoon) */}
               <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {/* Morning Label */}
-                <div style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                   🌅 Buổi Sáng (07:30 - 11:30)
                 </div>
 
@@ -427,39 +427,40 @@ export const StudentTimetable: React.FC = () => {
                                 padding: '10px',
                                 borderRadius: '8px',
                                 backgroundColor: badgeBg,
-                                borderLeft: `3px solid ${badgeColor}`,
                                 border: '1px solid var(--border)',
-                                borderLeftWidth: '3px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 gap: '4px'
                               }}
                             >
                               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <span style={{ fontSize: '0.625rem', fontWeight: 700, color: badgeColor }}>
-                                  {ev.startTime} - {ev.endTime}
-                                </span>
-                                <span style={{ fontSize: '0.5625rem', padding: '1px 4px', borderRadius: '3px', backgroundColor: 'var(--surface)', fontWeight: 600 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: badgeColor, display: 'inline-block' }} />
+                                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: badgeColor }}>
+                                    {ev.startTime} - {ev.endTime}
+                                  </span>
+                                </div>
+                                <span style={{ fontSize: '0.75rem', padding: '2px 7px', borderRadius: '4px', backgroundColor: 'var(--surface)', fontWeight: 600 }}>
                                   {ev.type === 'lecture' ? 'Lý thuyết' : ev.type === 'lab' ? 'Thực hành' : 'Thi'}
                                 </span>
                               </div>
 
-                              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
+                              <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.35 }}>
                                 {ev.title}
                               </div>
 
-                              <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '3px' }}>
-                                <MapPin size={10} /> {ev.room}
+                              <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <MapPin size={13} /> {ev.room}
                               </div>
 
-                              <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>
-                                {ev.instructor}
+                              <div style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
+                                GV: {ev.instructor}
                               </div>
                             </div>
                           );
                         })}
                         {morningEvents.length === 0 && (
-                          <div style={{ height: '100%', borderRadius: '6px', border: '1px dashed var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '0.6875rem' }}>
+                          <div style={{ height: '100%', borderRadius: '6px', border: '1px dashed var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '0.75rem' }}>
                             Trống
                           </div>
                         )}
@@ -469,7 +470,7 @@ export const StudentTimetable: React.FC = () => {
                 </div>
 
                 {/* Afternoon Label */}
-                <div style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', marginTop: '10px' }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', marginTop: '10px' }}>
                   🌤️ Buổi Chiều (13:30 - 17:00)
                 </div>
 
@@ -489,37 +490,39 @@ export const StudentTimetable: React.FC = () => {
                                 borderRadius: '8px',
                                 backgroundColor: badgeBg,
                                 border: '1px solid var(--border)',
-                                borderLeft: `3px solid ${badgeColor}`,
                                 display: 'flex',
                                 flexDirection: 'column',
                                 gap: '4px'
                               }}
                             >
                               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <span style={{ fontSize: '0.625rem', fontWeight: 700, color: badgeColor }}>
-                                  {ev.startTime} - {ev.endTime}
-                                </span>
-                                <span style={{ fontSize: '0.5625rem', padding: '1px 4px', borderRadius: '3px', backgroundColor: 'var(--surface)', fontWeight: 600 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: badgeColor, display: 'inline-block' }} />
+                                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: badgeColor }}>
+                                    {ev.startTime} - {ev.endTime}
+                                  </span>
+                                </div>
+                                <span style={{ fontSize: '0.75rem', padding: '2px 7px', borderRadius: '4px', backgroundColor: 'var(--surface)', fontWeight: 600 }}>
                                   {ev.type === 'lecture' ? 'Lý thuyết' : 'Thực hành'}
                                 </span>
                               </div>
 
-                              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
+                              <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.35 }}>
                                 {ev.title}
                               </div>
 
-                              <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '3px' }}>
-                                <MapPin size={10} /> {ev.room}
+                              <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <MapPin size={13} /> {ev.room}
                               </div>
 
-                              <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>
-                                {ev.instructor}
+                              <div style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
+                                GV: {ev.instructor}
                               </div>
                             </div>
                           );
                         })}
                         {afternoonEvents.length === 0 && (
-                          <div style={{ height: '100%', borderRadius: '6px', border: '1px dashed var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '0.6875rem' }}>
+                          <div style={{ height: '100%', borderRadius: '6px', border: '1px dashed var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '0.75rem' }}>
                             Trống
                           </div>
                         )}
@@ -610,7 +613,7 @@ export const StudentTimetable: React.FC = () => {
                 <h3 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
                   Kế hoạch học tập & Bài tập
                 </h3>
-                <span style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                   {tasks.filter(t => t.status === 'submitted').length} / {tasks.length} bài đã nộp
                 </span>
               </div>
@@ -619,7 +622,7 @@ export const StudentTimetable: React.FC = () => {
                 type="button" 
                 className="btn btn-outline btn-xs"
                 onClick={() => setShowAddTaskModal(true)}
-                style={{ fontSize: '0.6875rem', padding: '3px 8px' }}
+                style={{ fontSize: '0.75rem', padding: '3px 8px' }}
               >
                 + Thêm
               </button>
@@ -633,7 +636,7 @@ export const StudentTimetable: React.FC = () => {
                   type="button"
                   onClick={() => setTaskFilter(tab)}
                   style={{
-                    fontSize: '0.6875rem',
+                    fontSize: '0.75rem',
                     fontWeight: 600,
                     padding: '3px 8px',
                     borderRadius: '6px',
@@ -678,14 +681,14 @@ export const StudentTimetable: React.FC = () => {
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <span style={{ fontSize: '0.6875rem', fontWeight: 700, fontFamily: 'monospace', color: 'var(--primary)' }}>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 700, fontFamily: 'monospace', color: 'var(--primary)' }}>
                             {task.courseCode}
                           </span>
                           <span 
                             style={{
-                              fontSize: '0.5625rem',
+                              fontSize: '0.75rem',
                               fontWeight: 700,
-                              padding: '1px 5px',
+                              padding: '2px 7px',
                               borderRadius: '4px',
                               backgroundColor: priorityColor.bg,
                               color: priorityColor.color,
@@ -708,7 +711,7 @@ export const StudentTimetable: React.FC = () => {
                             display: 'flex',
                             alignItems: 'center',
                             gap: '4px',
-                            fontSize: '0.6875rem',
+                            fontSize: '0.75rem',
                             color: task.status === 'submitted' ? 'var(--success)' : 'var(--text-secondary)'
                           }}
                         >
@@ -724,7 +727,7 @@ export const StudentTimetable: React.FC = () => {
                         {task.title}
                       </div>
 
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.6875rem', color: 'var(--text-secondary)', marginTop: '4px', paddingTop: '6px', borderTop: '1px solid var(--border-subtle)' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '4px', paddingTop: '6px', borderTop: '1px solid var(--border-subtle)' }}>
                         <span style={{ color: task.priority === 'high' && task.status !== 'submitted' ? 'var(--danger)' : 'var(--text-secondary)', fontWeight: 600 }}>
                           ⏰ Hạn nộp: {task.dueDate} ({task.dueTime})
                         </span>

@@ -299,10 +299,10 @@ export const StudentLearningPath: React.FC = () => {
           <div 
             className="minimal-card"
             style={{
-              padding: '12px 16px',
+              padding: '14px 18px',
               borderRadius: '10px',
-              backgroundColor: 'var(--surface)',
-              borderLeft: '4px solid var(--primary)',
+              backgroundColor: 'var(--primary-light)',
+              border: '1px solid var(--primary-border)',
               marginBottom: '20px',
               display: 'flex',
               alignItems: 'center',
@@ -311,16 +311,19 @@ export const StudentLearningPath: React.FC = () => {
               gap: '12px'
             }}
           >
-            <div>
-              <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                Chiến lược tối ưu hóa: 
-              </span>
-              <span style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', marginLeft: '6px' }}>
-                Đã bảo đảm điều kiện đăng ký học phần LIF2004 ở HK6 để sẵn sàng cho Khóa luận tốt nghiệp ở HK8. Chuẩn tốt nghiệp 130 tín chỉ đúng hạn Tháng 6/2026.
-              </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1 }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--primary)', flexShrink: 0 }} />
+              <div>
+                <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                  Chiến lược tối ưu hóa: 
+                </span>
+                <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginLeft: '6px' }}>
+                  Đã bảo đảm điều kiện đăng ký học phần LIF2004 ở HK6 để sẵn sàng cho Khóa luận tốt nghiệp ở HK8. Chuẩn tốt nghiệp 130 tín chỉ đúng hạn Tháng 6/2026.
+                </span>
+              </div>
             </div>
             <div style={{ display: 'flex', gap: '8px', fontSize: '0.75rem' }}>
-              <span style={{ padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--primary-light)', color: 'var(--primary)', fontWeight: 600 }}>
+              <span style={{ padding: '3px 10px', borderRadius: '4px', backgroundColor: 'var(--surface)', color: 'var(--primary)', fontWeight: 600, border: '1px solid var(--primary-border)' }}>
                 Cần tích lũy: 35 TC
               </span>
               <span style={{ padding: '2px 8px', borderRadius: '4px', backgroundColor: 'var(--success-bg)', color: 'var(--success)', fontWeight: 600 }}>
@@ -362,14 +365,14 @@ export const StudentLearningPath: React.FC = () => {
                       <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                         {sem.semester.split('•')[0]}
                       </div>
-                      <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                         {sem.semester.split('•')[1] || ''}
                       </div>
                     </div>
 
                     <span 
                       style={{
-                        fontSize: '0.6875rem',
+                        fontSize: '0.75rem',
                         fontWeight: 700,
                         padding: '2px 8px',
                         borderRadius: '999px',
@@ -399,10 +402,10 @@ export const StudentLearningPath: React.FC = () => {
                         }}
                       >
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <span style={{ fontSize: '0.6875rem', fontWeight: 700, fontFamily: 'monospace', color: 'var(--primary)' }}>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 700, fontFamily: 'monospace', color: 'var(--primary)' }}>
                             {course.code}
                           </span>
-                          <span style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
                             {course.credits} TC
                           </span>
                         </div>
@@ -412,13 +415,13 @@ export const StudentLearningPath: React.FC = () => {
                         </div>
 
                         {course.prerequisite && (
-                          <div style={{ fontSize: '0.6875rem', color: 'var(--danger)', display: 'flex', alignItems: 'center', gap: '3px' }}>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--danger)', display: 'flex', alignItems: 'center', gap: '3px' }}>
                             <AlertTriangle size={11} /> Tiên quyết: {course.prerequisite}
                           </div>
                         )}
 
                         {course.rationale && (
-                          <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                             💡 {course.rationale}
                           </div>
                         )}
@@ -437,7 +440,7 @@ export const StudentLearningPath: React.FC = () => {
                               display: 'flex',
                               alignItems: 'center',
                               gap: '2px',
-                              fontSize: '0.6875rem',
+                              fontSize: '0.75rem',
                               padding: '2px 4px'
                             }}
                           >
@@ -456,7 +459,7 @@ export const StudentLearningPath: React.FC = () => {
                               display: 'flex',
                               alignItems: 'center',
                               gap: '2px',
-                              fontSize: '0.6875rem',
+                              fontSize: '0.75rem',
                               padding: '2px 4px'
                             }}
                           >

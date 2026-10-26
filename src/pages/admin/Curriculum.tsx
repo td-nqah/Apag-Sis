@@ -758,7 +758,7 @@ export const AdminCurriculum: React.FC = () => {
                     type="button" 
                     className="btn btn-outline btn-xs"
                     onClick={expandAllBlocks}
-                    style={{ fontSize: '0.6875rem', padding: '3px 8px' }}
+                    style={{ fontSize: '0.75rem', padding: '3px 8px' }}
                   >
                     Mở rộng tất cả học phần
                   </button>
@@ -766,7 +766,7 @@ export const AdminCurriculum: React.FC = () => {
                     type="button" 
                     className="btn btn-outline btn-xs"
                     onClick={collapseAllBlocks}
-                    style={{ fontSize: '0.6875rem', padding: '3px 8px' }}
+                    style={{ fontSize: '0.75rem', padding: '3px 8px' }}
                   >
                     Thu gọn
                   </button>
@@ -780,7 +780,7 @@ export const AdminCurriculum: React.FC = () => {
                     placeholder="Tìm kiếm học phần theo mã hoặc tên..."
                     value={courseSearchInModal}
                     onChange={(e) => setCourseSearchInModal(e.target.value)}
-                    style={{ paddingLeft: '26px', fontSize: '0.6875rem', height: '28px' }}
+                    style={{ paddingLeft: '26px', fontSize: '0.75rem', height: '28px' }}
                   />
                 </div>
               )}
@@ -839,7 +839,7 @@ export const AdminCurriculum: React.FC = () => {
                                   }}
                                   className="btn btn-outline btn-xs"
                                   style={{
-                                    fontSize: '0.6875rem',
+                                    fontSize: '0.75rem',
                                     padding: '2px 8px',
                                     display: 'inline-flex',
                                     alignItems: 'center',
@@ -863,7 +863,7 @@ export const AdminCurriculum: React.FC = () => {
                                       <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                                         📋 Danh sách các học phần thuộc: <span style={{ color: 'var(--primary)' }}>{b.name}</span>
                                       </span>
-                                      <span style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                                         Tổng {b.courses.length} học phần ({b.courses.reduce((acc, c) => acc + c.credits, 0)} TC)
                                       </span>
                                     </div>
@@ -900,7 +900,7 @@ export const AdminCurriculum: React.FC = () => {
                                               <td style={{ textAlign: 'center' }}>
                                                 <span 
                                                   style={{
-                                                    fontSize: '0.6875rem',
+                                                    fontSize: '0.75rem',
                                                     fontWeight: 600,
                                                     padding: '1px 6px',
                                                     borderRadius: '4px',
@@ -912,7 +912,7 @@ export const AdminCurriculum: React.FC = () => {
                                                   {c.type}
                                                 </span>
                                               </td>
-                                              <td style={{ fontSize: '0.6875rem', color: c.prereq ? 'var(--danger)' : 'var(--text-muted)' }}>
+                                              <td style={{ fontSize: '0.75rem', color: c.prereq ? 'var(--danger)' : 'var(--text-muted)' }}>
                                                 {c.prereq ? `Tiên quyết: ${c.prereq}` : '—'}
                                               </td>
                                               <td style={{ textAlign: 'center', fontWeight: 600, color: 'var(--text-secondary)' }}>
@@ -965,7 +965,7 @@ export const AdminCurriculum: React.FC = () => {
                             <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
                               {c.name}
                             </td>
-                            <td style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                            <td style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                               {c.blockName}
                             </td>
                             <td style={{ textAlign: 'center', fontWeight: 700, color: 'var(--primary)' }}>
@@ -977,7 +977,7 @@ export const AdminCurriculum: React.FC = () => {
                             <td style={{ textAlign: 'center' }}>
                               <span 
                                 style={{
-                                  fontSize: '0.6875rem',
+                                  fontSize: '0.75rem',
                                   fontWeight: 600,
                                   padding: '1px 6px',
                                   borderRadius: '4px',
@@ -989,7 +989,7 @@ export const AdminCurriculum: React.FC = () => {
                                 {c.type}
                               </span>
                             </td>
-                            <td style={{ fontSize: '0.6875rem', color: c.prereq ? 'var(--danger)' : 'var(--text-muted)' }}>
+                            <td style={{ fontSize: '0.75rem', color: c.prereq ? 'var(--danger)' : 'var(--text-muted)' }}>
                               {c.prereq || '—'}
                             </td>
                             <td style={{ textAlign: 'center', fontWeight: 600, color: 'var(--text-secondary)' }}>

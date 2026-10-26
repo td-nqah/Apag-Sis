@@ -74,7 +74,7 @@
 }
 
 .login-bottom-branding-title {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -373,7 +373,7 @@
 }
 
 .demo-role-card-desc {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-top: 2px;
   line-height: 1.2;
@@ -382,7 +382,7 @@
 .login-trust-footer {
   text-align: center;
   margin-top: 18px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   display: flex;
   align-items: center;

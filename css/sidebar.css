@@ -397,9 +397,9 @@
 
 .panel-footer-btn.logout-btn:hover {
   background-color: #FFFFFF;
-  color: var(--danger, #ef4444);
-  border-color: rgba(239, 68, 68, 0.25);
-  box-shadow: -1.5px -1.5px 3.5px rgba(255, 255, 255, 0.9), 1.5px 1.5px 3.5px rgba(239, 68, 68, 0.15);
+  color: var(--danger, #B91C1C);
+  border-color: var(--danger-border, #FECACA);
+  box-shadow: -1.5px -1.5px 3.5px rgba(255, 255, 255, 0.9), 1.5px 1.5px 3.5px rgba(185, 28, 28, 0.15);
 }
 
 /* ==========================================================================

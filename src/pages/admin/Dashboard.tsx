@@ -162,7 +162,7 @@ export const AdminDashboard: React.FC = () => {
         datasets: [{
           label: 'Số lượng sinh viên',
           data: [countA, countB, countC, countD, countF],
-          backgroundColor: ['#10B981', '#3B82F6', '#F59E0B', '#F97316', '#EF4444'],
+          backgroundColor: ['#047857', '#1D4ED8', '#B45309', '#C2410C', '#B91C1C'],
           borderRadius: 6,
           barPercentage: 0.65
         }]
@@ -466,21 +466,21 @@ export const AdminDashboard: React.FC = () => {
                   </span>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.6875rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10B981' }} />
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--success, #047857)' }} />
                     <span style={{ color: 'var(--text-secondary)' }}>A (≥ 8.5)</span>
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#3B82F6' }} />
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#1D4ED8' }} />
                     <span style={{ color: 'var(--text-secondary)' }}>B (7.0-8.4)</span>
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--warning, #B45309)' }} />
                     <span style={{ color: 'var(--text-secondary)' }}>C (5.5-6.9)</span>
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#EF4444' }} />
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--danger, #B91C1C)' }} />
                     <span style={{ color: 'var(--text-secondary)' }}>D/F (&lt; 5.5)</span>
                   </span>
                 </div>
@@ -622,7 +622,7 @@ export const AdminDashboard: React.FC = () => {
 
                         {/* Letter Grade */}
                         <td style={{ padding: '6px', textAlign: 'center', fontWeight: 800 }}>
-                          <span className={`badge ${letter === 'A' ? 'badge-success' : letter.startsWith('B') ? 'badge-primary' : letter.startsWith('C') ? 'badge-warning' : 'badge-danger'}`} style={{ fontSize: '0.6875rem', padding: '2px 6px' }}>
+                          <span className={`badge ${letter === 'A' ? 'badge-success' : letter.startsWith('B') ? 'badge-primary' : letter.startsWith('C') ? 'badge-warning' : 'badge-danger'}`} style={{ fontSize: '0.75rem', padding: '2px 6px' }}>
                             {letter}
                           </span>
                         </td>
@@ -631,7 +631,7 @@ export const AdminDashboard: React.FC = () => {
                         <td style={{ padding: '10px', textAlign: 'right' }}>
                           <span 
                             style={{
-                              fontSize: '0.6875rem',
+                              fontSize: '0.75rem',
                               fontWeight: 600,
                               color: student.status === 'approved' ? 'var(--success)' : 'var(--text-muted)'
                             }}
@@ -687,19 +687,19 @@ export const AdminDashboard: React.FC = () => {
                 }}
               >
                 <div>
-                  <span style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>Điểm TB Lớp</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Điểm TB Lớp</span>
                   <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>
                     {(gradebookStudents.reduce((acc, s) => acc + calcTotalScore(s), 0) / gradebookStudents.length).toFixed(2)}
                   </div>
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>Tỷ lệ Đạt</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Tỷ lệ Đạt</span>
                   <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--success)', marginTop: '2px' }}>
                     {((gradebookStudents.filter(s => calcTotalScore(s) >= 4.0).length / gradebookStudents.length) * 100).toFixed(0)}%
                   </div>
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>Tỷ lệ Giỏi (A/B+)</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Tỷ lệ Giỏi (A/B+)</span>
                   <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--primary)', marginTop: '2px' }}>
                     {((gradebookStudents.filter(s => calcTotalScore(s) >= 8.0).length / gradebookStudents.length) * 100).toFixed(0)}%
                   </div>
@@ -819,7 +819,7 @@ export const AdminDashboard: React.FC = () => {
             <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--danger)', textTransform: 'uppercase' }}>
               SV vắng / Nguy cơ
             </span>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#EF4444' }}></span>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--danger, #B91C1C)' }}></span>
           </div>
           <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--danger)', margin: '4px 0' }}>
             08 <span style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--danger-text)' }}>sinh viên</span>
@@ -955,7 +955,7 @@ export const AdminDashboard: React.FC = () => {
                         {/* Col 1: Đối tượng */}
                         <td style={{ padding: '12px' }}>
                           <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{t.target}</div>
-                          <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)', marginTop: '2px' }}>{t.targetSub}</div>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '2px' }}>{t.targetSub}</div>
                         </td>
 
                         {/* Col 2: Nội dung tóm tắt */}
@@ -967,7 +967,7 @@ export const AdminDashboard: React.FC = () => {
                         <td style={{ padding: '12px' }}>
                           <span 
                             style={{
-                              fontSize: '0.6875rem',
+                              fontSize: '0.75rem',
                               fontWeight: 700,
                               padding: '2px 8px',
                               borderRadius: '999px',
@@ -1000,7 +1000,7 @@ export const AdminDashboard: React.FC = () => {
                                       display: 'flex',
                                       alignItems: 'center',
                                       gap: '4px',
-                                      fontSize: '0.6875rem',
+                                      fontSize: '0.75rem',
                                       fontWeight: 600
                                     }}
                                   >
@@ -1021,7 +1021,7 @@ export const AdminDashboard: React.FC = () => {
                                       display: 'flex',
                                       alignItems: 'center',
                                       gap: '4px',
-                                      fontSize: '0.6875rem',
+                                      fontSize: '0.75rem',
                                       fontWeight: 600
                                     }}
                                   >
@@ -1044,7 +1044,7 @@ export const AdminDashboard: React.FC = () => {
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: '4px',
-                                    fontSize: '0.6875rem',
+                                    fontSize: '0.75rem',
                                     fontWeight: 600,
                                     textDecoration: 'none'
                                   }}
@@ -1068,7 +1068,7 @@ export const AdminDashboard: React.FC = () => {
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: '4px',
-                                    fontSize: '0.6875rem',
+                                    fontSize: '0.75rem',
                                     fontWeight: 600,
                                     border: 'none'
                                   }}

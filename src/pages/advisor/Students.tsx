@@ -135,105 +135,101 @@ export const AdvisorStudents: React.FC = () => {
       </div>
 
       {/* Table Card */}
-      <div className="minimal-card">
-        <div className="card-body p-0">
-          <div className="table-responsive">
-            <table className="minimal-table">
-              <thead>
-                <tr>
-                  <th style={{ width: '120px' }}>MSSV</th>
-                  <th>HỌ VÀ TÊN</th>
-                  <th style={{ width: '110px' }}>LỚP</th>
-                  <th style={{ width: '80px' }}>GPA</th>
-                  <th style={{ width: '150px' }}>TÍN CHỈ TÍCH LŨY</th>
-                  <th style={{ width: '140px' }}>TIẾN ĐỘ</th>
-                  <th style={{ width: '150px' }}>PHÂN LOẠI RỦI RO</th>
-                  <th style={{ width: '130px' }}>THAO TÁC</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.length === 0 ? (
-                  <tr>
-                    <td colSpan={8} className="text-center py-6 text-muted">
-                      Không tìm thấy sinh viên nào phù hợp.
+      <div className="minimal-card" style={{ padding: '24px', overflowX: 'auto' }}>
+        <table className="minimal-table" style={{ width: '100%', borderCollapse: 'collapse', border: 'none', boxShadow: 'none' }}>
+          <thead>
+            <tr>
+              <th style={{ width: '120px' }}>MSSV</th>
+              <th>Họ và tên</th>
+              <th style={{ width: '110px' }}>Lớp</th>
+              <th style={{ width: '80px', textAlign: 'right' }}>GPA</th>
+              <th style={{ width: '150px', textAlign: 'right' }}>Tín chỉ tích lũy</th>
+              <th style={{ width: '160px' }}>Tiến độ</th>
+              <th style={{ width: '150px' }}>Phân loại rủi ro</th>
+              <th style={{ width: '130px', textAlign: 'center' }}>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan={8} className="text-center py-6 text-muted">
+                  Không tìm thấy sinh viên nào phù hợp.
+                </td>
+              </tr>
+            ) : (
+              filtered.map(s => {
+                const isHigh = s.riskLevel === 'high' || s.riskLevel === 'critical';
+                const isWatch = s.riskLevel === 'watch';
+                const riskBadge = isHigh ? (
+                  <span className="badge badge-danger">Cao</span>
+                ) : isWatch ? (
+                  <span className="badge badge-warning">Theo dõi</span>
+                ) : (
+                  <span className="badge badge-success">Bình thường</span>
+                );
+
+                const progressPct = s.progress || s.progressPercentage || 55.4;
+                const progressColor = isHigh 
+                  ? 'var(--danger, #B91C1C)' 
+                  : isWatch 
+                    ? 'var(--warning, #B45309)' 
+                    : 'var(--success, #047857)';
+
+                return (
+                  <tr key={s.studentId}>
+                    <td><code>{s.studentId}</code></td>
+                    <td className="font-medium text-main">{s.fullName || s.name}</td>
+                    <td>{s.class}</td>
+                    <td style={{ textAlign: 'right' }}>
+                      <span className={`font-bold ${s.gpa < 2.5 ? 'text-danger' : 'text-primary'}`}>
+                        {Number(s.gpa).toFixed(2)}
+                      </span>
+                    </td>
+                    <td style={{ textAlign: 'right' }}>{s.credits || s.creditsCompleted || 72} / 130 TC</td>
+                    <td>
+                      <div className="d-flex items-center gap-2" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <div 
+                          className="progress-bar-container flex-1" 
+                          style={{ 
+                            width: '100px', 
+                            height: '7px', 
+                            background: '#F1F5F9', 
+                            border: '1px solid #D1D5DB', 
+                            borderRadius: '999px', 
+                            overflow: 'hidden' 
+                          }}
+                        >
+                          <div 
+                            className="progress-bar-fill" 
+                            style={{ 
+                              width: `${progressPct}%`, 
+                              height: '100%', 
+                              backgroundColor: progressColor,
+                              borderRadius: '999px'
+                            }}
+                          ></div>
+                        </div>
+                        <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-primary)', minWidth: '40px', textAlign: 'right' }}>
+                          {progressPct}%
+                        </span>
+                      </div>
+                    </td>
+                    <td>{riskBadge}</td>
+                    <td style={{ textAlign: 'center' }}>
+                      <button 
+                        type="button" 
+                        className="btn btn-outline btn-xs"
+                        onClick={() => navigate(`/advisor/student-detail?id=${s.studentId}`)}
+                      >
+                        Hồ sơ & Đánh giá
+                      </button>
                     </td>
                   </tr>
-                ) : (
-                  filtered.map(s => {
-                    const isHigh = s.riskLevel === 'high' || s.riskLevel === 'critical';
-                    const isWatch = s.riskLevel === 'watch';
-                    const riskBadge = isHigh ? (
-                      <span className="badge badge-danger">Cao</span>
-                    ) : isWatch ? (
-                      <span className="badge badge-warning">Theo dõi</span>
-                    ) : (
-                      <span className="badge badge-success">Bình thường</span>
-                    );
-
-                    const progressPct = s.progress || s.progressPercentage || 55.4;
-                    const progressColor = isHigh 
-                      ? '#EF4444' 
-                      : isWatch 
-                        ? '#F59E0B' 
-                        : '#10B981';
-
-                    return (
-                      <tr key={s.studentId}>
-                        <td><code>{s.studentId}</code></td>
-                        <td className="font-medium">{s.fullName || s.name}</td>
-                        <td>{s.class}</td>
-                        <td style={{ textAlign: 'right' }}>
-                          <span className={`font-bold ${s.gpa < 2.5 ? 'text-danger' : 'text-primary'}`}>
-                            {Number(s.gpa).toFixed(2)}
-                          </span>
-                        </td>
-                        <td style={{ textAlign: 'right' }}>{s.credits || s.creditsCompleted || 72} / 130 TC</td>
-                        <td>
-                          <div className="d-flex items-center gap-2" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <div 
-                              className="progress-bar-container flex-1" 
-                              style={{ 
-                                width: '80px', 
-                                height: '7px', 
-                                background: '#F1F5F9', 
-                                border: '1px solid #D1D5DB', 
-                                borderRadius: '999px', 
-                                overflow: 'hidden' 
-                              }}
-                            >
-                              <div 
-                                className="progress-bar-fill" 
-                                style={{ 
-                                  width: `${progressPct}%`, 
-                                  height: '100%', 
-                                  backgroundColor: progressColor,
-                                  borderRadius: '999px'
-                                }}
-                              ></div>
-                            </div>
-                            <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#000000', minWidth: '32px' }}>
-                              {progressPct}%
-                            </span>
-                          </div>
-                        </td>
-                        <td>{riskBadge}</td>
-                        <td style={{ textAlign: 'center' }}>
-                          <button 
-                            type="button" 
-                            className="btn btn-outline btn-xs"
-                            onClick={() => navigate(`/advisor/student-detail?id=${s.studentId}`)}
-                          >
-                            Hồ sơ & Đánh giá
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                );
+              })
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

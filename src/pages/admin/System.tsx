@@ -74,15 +74,15 @@ export const AdminSystem: React.FC = () => {
     if (newPassword.length < 6) {
       strengthLabel = 'Yếu';
       strengthPercent = 30;
-      strengthColor = '#EF4444';
+      strengthColor = 'var(--danger, #B91C1C)';
     } else if (newPassword.length < 10) {
       strengthLabel = 'Trung bình';
       strengthPercent = 65;
-      strengthColor = '#F59E0B';
+      strengthColor = 'var(--warning, #B45309)';
     } else {
       strengthLabel = 'Mạnh';
       strengthPercent = 100;
-      strengthColor = '#10B981';
+      strengthColor = 'var(--success, #047857)';
     }
   }
 
@@ -120,7 +120,7 @@ export const AdminSystem: React.FC = () => {
         <div className="minimal-card settings-card" style={{ marginBottom: '24px' }}>
           <div className="card-header d-flex justify-between items-center" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div className="d-flex items-center gap-3" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div className="metric-icon" style={{ color: 'var(--status-success, #10B981)' }}>
+              <div className="metric-icon" style={{ color: 'var(--success, #047857)' }}>
                 <ShieldCheck size={20} />
               </div>
               <div>
@@ -211,13 +211,13 @@ export const AdminSystem: React.FC = () => {
                   <span className="font-bold" style={{ color: strengthColor }}>{strengthLabel}</span>
                 </div>
                 <div className="progress-bar-flat mb-2" style={{ height: '4px', background: 'var(--border)', borderRadius: '2px', overflow: 'hidden' }}>
-                  <div style={{ width: `${strengthPercent}%`, height: '100%', transition: 'width 0.3s, background-color 0.3s', backgroundColor: strengthColor }}></div>
+                  <div style={{ width: `${strengthPercent}%`, height: '100%', transformOrigin: 'left', transition: 'transform 0.3s, background-color 0.3s', backgroundColor: strengthColor }}></div>
                 </div>
                 <div className="d-flex items-center gap-3 text-muted flex-wrap" style={{ display: 'flex', gap: '16px' }}>
-                  <span style={{ color: isLengthValid ? 'var(--status-success, #10B981)' : 'inherit', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <span style={{ color: isLengthValid ? 'var(--success, #047857)' : 'inherit', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                     <Check size={12} /> Tối thiểu 6 ký tự
                   </span>
-                  <span style={{ color: isMatchValid ? 'var(--status-success, #10B981)' : 'inherit', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <span style={{ color: isMatchValid ? 'var(--success, #047857)' : 'inherit', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                     <Check size={12} /> Mật khẩu xác nhận trùng khớp
                   </span>
                 </div>

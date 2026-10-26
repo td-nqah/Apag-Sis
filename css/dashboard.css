@@ -328,7 +328,7 @@
 }
 
 .dropdown-time {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-top: 2px;
 }
@@ -372,7 +372,7 @@
 }
 
 .navbar-user-role {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 
@@ -510,7 +510,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--primary);
   text-transform: uppercase;
@@ -739,7 +739,7 @@
 }
 
 .kpi-footer {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   border-top: 1px solid rgba(208, 218, 232, 0.6);
   padding-top: 8px;
@@ -833,7 +833,7 @@
 }
 
 .highlight-sub {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-top: 1px;
 }
@@ -871,7 +871,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   padding: 3px 8px;
   border-radius: var(--radius-pill);
@@ -926,7 +926,7 @@
   margin-top: 14px;
   padding-top: 12px;
   border-top: 1px solid rgba(208, 218, 232, 0.6);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 
@@ -1023,7 +1023,7 @@
 
 .progress-cell-fill {
   height: 100%;
-  background-color: #10B981;
+  background-color: var(--success, #047857);
   border-radius: var(--radius-pill);
 }
 

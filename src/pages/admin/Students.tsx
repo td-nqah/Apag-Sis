@@ -601,7 +601,7 @@ export const AdminStudents: React.FC = () => {
                 setSearchQuery('');
                 setCurrentPage(1);
               }}
-              style={{ fontSize: '0.6875rem', height: '28px', color: 'var(--text-muted)' }}
+              style={{ fontSize: '0.75rem', height: '28px', color: 'var(--text-muted)' }}
             >
               Đặt lại bộ lọc
             </button>
@@ -728,7 +728,7 @@ export const AdminStudents: React.FC = () => {
                             <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--text-primary)' }}>
                               {user.fullName}
                             </div>
-                            <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
+                            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                               {user.email}
                             </div>
                           </div>
@@ -754,7 +754,7 @@ export const AdminStudents: React.FC = () => {
                       <td style={{ padding: '10px 12px' }}>
                         <span 
                           style={{
-                            fontSize: '0.6875rem',
+                            fontSize: '0.75rem',
                             fontWeight: 600,
                             padding: '2px 8px',
                             borderRadius: '999px',
@@ -782,7 +782,7 @@ export const AdminStudents: React.FC = () => {
                             className="btn btn-outline btn-xs"
                             onClick={() => setDrawerUser(user)}
                             title="Xem chi tiết hồ sơ (500px Drawer)"
-                            style={{ padding: '3px 8px', fontSize: '0.6875rem' }}
+                            style={{ padding: '3px 8px', fontSize: '0.75rem' }}
                           >
                             Chi tiết
                           </button>
@@ -936,7 +936,7 @@ export const AdminStudents: React.FC = () => {
                     <code style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)' }}>
                       {drawerUser.studentId}
                     </code>
-                    <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>• {drawerUser.class}</span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>• {drawerUser.class}</span>
                   </div>
                 </div>
               </div>
@@ -1017,20 +1017,20 @@ export const AdminStudents: React.FC = () => {
                 <>
                   {/* Academic Status Card */}
                   <div style={{ padding: '14px', borderRadius: '8px', backgroundColor: 'var(--surface-subtle)', border: '1px solid var(--border)' }}>
-                    <div style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '8px' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '8px' }}>
                       Chỉ số học tập hiện tại
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', textAlign: 'center' }}>
                       <div style={{ padding: '8px', borderRadius: '6px', backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
-                        <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>GPA Tích lũy</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>GPA Tích lũy</div>
                         <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary)' }}>{drawerUser.gpa.toFixed(2)}</div>
                       </div>
                       <div style={{ padding: '8px', borderRadius: '6px', backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
-                        <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Tín chỉ</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Tín chỉ</div>
                         <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>{drawerUser.credits} / 120</div>
                       </div>
                       <div style={{ padding: '8px', borderRadius: '6px', backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
-                        <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Trạng thái</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Trạng thái</div>
                         <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--success)', marginTop: '4px' }}>{drawerUser.status}</div>
                       </div>
                     </div>
@@ -1105,15 +1105,15 @@ export const AdminStudents: React.FC = () => {
                         >
                           <div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                              <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--primary)', fontFamily: 'monospace' }}>
+                              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', fontFamily: 'monospace' }}>
                                 {course.code}
                               </span>
-                              <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>• {course.credits} TC</span>
+                              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>• {course.credits} TC</span>
                             </div>
                             <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--text-primary)', marginTop: '2px' }}>
                               {course.name}
                             </div>
-                            <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                               {course.semester}
                             </div>
                           </div>
@@ -1122,7 +1122,7 @@ export const AdminStudents: React.FC = () => {
                             <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--primary)' }}>
                               {course.grade}
                             </div>
-                            <span style={{ fontSize: '0.625rem', color: 'var(--success)', fontWeight: 600 }}>Quá trình</span>
+                            <span style={{ fontSize: '0.75rem', color: 'var(--success)', fontWeight: 600 }}>Quá trình</span>
                           </div>
                         </div>
                       ))}

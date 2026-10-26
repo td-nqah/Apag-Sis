@@ -140,7 +140,7 @@ export const StudentAiAssistant: React.FC = () => {
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                     <div style={{ width: '22px', height: '22px', borderRadius: '6px', background: m.sender === 'user' ? 'rgba(255,255,255,0.25)' : 'linear-gradient(135deg, #2563EB, #7C3AED)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
-                      {m.sender === 'user' ? <span style={{ fontSize: '11px', fontWeight: 700 }}>SV</span> : <Bot size={13} />}
+                      {m.sender === 'user' ? <span style={{ fontSize: '12px', fontWeight: 700 }}>SV</span> : <Bot size={13} />}
                     </div>
                     <span style={{ fontSize: '0.75rem', fontWeight: 600, color: m.sender === 'user' ? 'rgba(255,255,255,0.9)' : 'var(--text-secondary)' }}>
                       {m.sender === 'user' ? 'Bạn' : 'APAG SIS · Trợ lý Cố vấn Học vụ'}
@@ -152,7 +152,7 @@ export const StudentAiAssistant: React.FC = () => {
                       <strong>Trích dẫn quy chế:</strong> {m.citations[0].docCode} ({m.citations[0].article})
                     </div>
                   )}
-                  <div style={{ fontSize: '0.6875rem', marginTop: '8px', textAlign: m.sender === 'user' ? 'right' : 'left', opacity: 0.65 }}>
+                  <div style={{ fontSize: '0.75rem', marginTop: '8px', textAlign: m.sender === 'user' ? 'right' : 'left', opacity: 0.65 }}>
                     {m.time}
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export const StudentAiAssistant: React.FC = () => {
             <span>Gửi</span>
           </button>
         </form>
-        <div style={{ padding: '6px 18px 10px', fontSize: '0.6875rem', color: 'var(--text-muted)', textAlign: 'center', background: 'var(--surface)' }}>
+        <div style={{ padding: '6px 18px 10px', fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'center', background: 'var(--surface)' }}>
           Trợ lý học thuật AI cung cấp thông tin tham khảo; quyết định học vụ cuối cùng thuộc thẩm quyền Cố vấn học tập, Khoa và Phòng Quản lý Đào tạo.
         </div>
       </div>

@@ -211,15 +211,15 @@ export const AdvisorDashboard: React.FC = () => {
         if (activeRiskFilter !== 'all' && s.riskLevel !== activeRiskFilter) {
           return '#E2E8F0';
         }
-        if (s.riskLevel === 'red') return '#EF4444';
-        if (s.riskLevel === 'yellow') return '#F59E0B';
-        return '#10B981';
+        if (s.riskLevel === 'red') return '#B91C1C';
+        if (s.riskLevel === 'yellow') return '#B45309';
+        return '#047857';
       });
 
       const hoverBackgroundColors = sortedStudents.map(s => {
-        if (s.riskLevel === 'red') return '#DC2626';
-        if (s.riskLevel === 'yellow') return '#D97706';
-        return '#059669';
+        if (s.riskLevel === 'red') return '#991B1B';
+        if (s.riskLevel === 'yellow') return '#92400E';
+        return '#065F46';
       });
 
       chartInstanceRef.current = new Chart(chartCanvasRef.current, {
@@ -250,11 +250,11 @@ export const AdvisorDashboard: React.FC = () => {
                 boxHeight: 10,
                 padding: 10,
                 color: textColor,
-                font: { size: 10.5, family: 'Inter' },
+                font: { size: 12, family: 'var(--font-sans)' },
                 generateLabels: () => [
-                  { text: 'Nguy cơ cao (GPA < 2.0)', fillStyle: '#EF4444', strokeStyle: '#EF4444', lineWidth: 0 },
-                  { text: 'Cần chú ý (GPA 2.0 - 2.5)', fillStyle: '#F59E0B', strokeStyle: '#F59E0B', lineWidth: 0 },
-                  { text: 'An toàn (GPA >= 2.5)', fillStyle: '#10B981', strokeStyle: '#10B981', lineWidth: 0 }
+                  { text: 'Nguy cơ cao (GPA < 2.0)', fillStyle: '#B91C1C', strokeStyle: '#B91C1C', lineWidth: 0 },
+                  { text: 'Cần chú ý (GPA 2.0 - 2.5)', fillStyle: '#B45309', strokeStyle: '#B45309', lineWidth: 0 },
+                  { text: 'An toàn (GPA >= 2.5)', fillStyle: '#047857', strokeStyle: '#047857', lineWidth: 0 }
                 ]
               }
             },
@@ -321,7 +321,7 @@ export const AdvisorDashboard: React.FC = () => {
           labels: ['An toàn (>= 2.50)', 'Cần chú ý (2.00 - 2.49)', 'Nguy cơ cao (< 2.00)'],
           datasets: [{
             data: [108, 14, 6],
-            backgroundColor: ['#10B981', '#F59E0B', '#EF4444'],
+            backgroundColor: ['#047857', '#B45309', '#B91C1C'],
             borderWidth: 2,
             borderColor: '#FFFFFF',
             hoverOffset: 6
@@ -620,7 +620,7 @@ Chúc em luôn giữ vững niềm tin và nỗ lực bứt phá!`;
                 onClick={() => setChartType('bar')}
                 style={{
                   padding: '4px 8px',
-                  fontSize: '0.6875rem',
+                  fontSize: '0.75rem',
                   fontWeight: chartType === 'bar' ? 700 : 500,
                   color: chartType === 'bar' ? 'var(--text-primary)' : 'var(--text-secondary)',
                   backgroundColor: chartType === 'bar' ? 'var(--surface)' : 'transparent',
@@ -636,7 +636,7 @@ Chúc em luôn giữ vững niềm tin và nỗ lực bứt phá!`;
                 onClick={() => setChartType('doughnut')}
                 style={{
                   padding: '4px 8px',
-                  fontSize: '0.6875rem',
+                  fontSize: '0.75rem',
                   fontWeight: chartType === 'doughnut' ? 700 : 500,
                   color: chartType === 'doughnut' ? 'var(--text-primary)' : 'var(--text-secondary)',
                   backgroundColor: chartType === 'doughnut' ? 'var(--surface)' : 'transparent',
@@ -667,11 +667,11 @@ Chúc em luôn giữ vững niềm tin và nỗ lực bứt phá!`;
             border: '1px solid var(--border)' 
           }}>
             <div>
-              <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: 600 }}>GPA Trung bình lớp</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: 600 }}>GPA Trung bình lớp</div>
               <div style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--text-primary)' }}>3.12 <span style={{ fontSize: '0.75rem', fontWeight: 500, color: 'var(--text-secondary)' }}>/ 4.00</span></div>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: '0.6875rem', color: 'var(--danger)', textTransform: 'uppercase', fontWeight: 600 }}>Hỗ trợ học tập ưu tiên</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--danger)', textTransform: 'uppercase', fontWeight: 600 }}>Hỗ trợ học tập ưu tiên</div>
               <div style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--danger)' }}>06 <span style={{ fontSize: '0.75rem', fontWeight: 500, color: 'var(--text-secondary)' }}>sinh viên</span></div>
             </div>
           </div>
@@ -835,7 +835,7 @@ Chúc em luôn giữ vững niềm tin và nỗ lực bứt phá!`;
                       <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                         {s.name}
                       </div>
-                      <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                         MSSV: <strong>{s.studentId}</strong> · {s.classCode}
                       </div>
                     </div>
@@ -846,18 +846,18 @@ Chúc em luôn giữ vững niềm tin và nỗ lực bứt phá!`;
                       <div style={{ fontSize: '0.875rem', fontWeight: 800, color: s.gpa < 2.0 ? 'var(--danger)' : s.gpa < 2.5 ? 'var(--warning-text)' : 'var(--text-primary)' }}>
                         GPA {s.gpa.toFixed(2)}
                       </div>
-                      <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                         {s.completedCredits}/120 TC
                       </div>
                     </div>
 
                     <span 
                       style={{
-                        fontSize: '0.6875rem',
+                        fontSize: '0.75rem',
                         fontWeight: 700,
                         padding: '3px 8px',
                         borderRadius: '4px',
-                        backgroundColor: s.riskLevel === 'red' ? '#EF4444' : s.riskLevel === 'yellow' ? '#F59E0B' : '#10B981',
+                        backgroundColor: s.riskLevel === 'red' ? '#B91C1C' : s.riskLevel === 'yellow' ? '#B45309' : '#047857',
                         color: '#FFFFFF',
                         whiteSpace: 'nowrap'
                       }}
@@ -1059,7 +1059,7 @@ Chúc em luôn giữ vững niềm tin và nỗ lực bứt phá!`;
                           Utils.showToast('Đã sao chép thư hỗ trợ học tập vào bộ nhớ tạm!', 'success');
                         }}
                         className="btn btn-outline btn-xs"
-                        style={{ fontSize: '0.6875rem', padding: '2px 8px' }}
+                        style={{ fontSize: '0.75rem', padding: '2px 8px' }}
                       >
                         Sao chép thư
                       </button>
@@ -1108,15 +1108,15 @@ Chúc em luôn giữ vững niềm tin và nỗ lực bứt phá!`;
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', textAlign: 'center' }}>
                     <div style={{ padding: '10px', backgroundColor: 'var(--surface-subtle)', borderRadius: '8px', border: '1px solid var(--border)' }}>
-                      <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>GPA Hiện tại</div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>GPA Hiện tại</div>
                       <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{selectedStudent.gpa.toFixed(2)}</div>
                     </div>
                     <div style={{ padding: '10px', backgroundColor: 'var(--surface-subtle)', borderRadius: '8px', border: '1px solid var(--border)' }}>
-                      <div style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>TC Tích lũy</div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>TC Tích lũy</div>
                       <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{selectedStudent.completedCredits}</div>
                     </div>
                     <div style={{ padding: '10px', backgroundColor: selectedStudent.creditsOwed > 0 ? 'var(--danger-bg)' : 'var(--success-bg)', borderRadius: '8px', border: `1px solid ${selectedStudent.creditsOwed > 0 ? 'var(--danger-border)' : 'var(--success-border)'}` }}>
-                      <div style={{ fontSize: '0.6875rem', color: selectedStudent.creditsOwed > 0 ? 'var(--danger)' : 'var(--success)' }}>TC Chưa tích lũy</div>
+                      <div style={{ fontSize: '0.75rem', color: selectedStudent.creditsOwed > 0 ? 'var(--danger)' : 'var(--success)' }}>TC Chưa tích lũy</div>
                       <div style={{ fontSize: '1.25rem', fontWeight: 800, color: selectedStudent.creditsOwed > 0 ? 'var(--danger)' : 'var(--success)', marginTop: '2px' }}>{selectedStudent.creditsOwed}</div>
                     </div>
                   </div>

@@ -212,7 +212,7 @@ export const AiChatWidget: React.FC = () => {
                   </span>
                   <span 
                     style={{
-                      fontSize: '0.625rem',
+                      fontSize: '0.75rem',
                       padding: '1px 5px',
                       borderRadius: '4px',
                       backgroundColor: 'var(--primary)',
@@ -225,7 +225,7 @@ export const AiChatWidget: React.FC = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '2px' }}>
                   <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#16A34A', display: 'inline-block', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     Cố vấn cho: <strong style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{studentName}</strong> (K25)
                   </span>
                 </div>
@@ -282,7 +282,7 @@ export const AiChatWidget: React.FC = () => {
               <button 
                 type="button" 
                 onClick={() => setActiveContext(null)} 
-                style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', fontSize: '0.6875rem' }}
+                style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', fontSize: '0.75rem' }}
               >
                 ✕
               </button>
@@ -298,7 +298,7 @@ export const AiChatWidget: React.FC = () => {
               flexShrink: 0
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '6px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '6px' }}>
               <Sparkles size={11} color="var(--primary)" />
               <span>Gợi ý chat nhanh:</span>
             </div>
@@ -325,7 +325,7 @@ export const AiChatWidget: React.FC = () => {
                     backgroundColor: 'var(--surface-subtle)',
                     border: '1px solid var(--border)',
                     color: 'var(--text-primary)',
-                    fontSize: '0.6875rem',
+                    fontSize: '0.75rem',
                     fontWeight: 500,
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
@@ -424,9 +424,9 @@ export const AiChatWidget: React.FC = () => {
                           color: '#fff' 
                         }}
                       >
-                        {m.sender === 'user' ? <span style={{ fontSize: '9px', fontWeight: 700 }}>SV</span> : <Bot size={11} />}
+                        {m.sender === 'user' ? <span style={{ fontSize: '12px', fontWeight: 700 }}>SV</span> : <Bot size={11} />}
                       </div>
-                      <span style={{ fontSize: '0.6875rem', fontWeight: 600, color: m.sender === 'user' ? 'rgba(255,255,255,0.9)' : 'var(--text-secondary)' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 600, color: m.sender === 'user' ? 'rgba(255,255,255,0.9)' : 'var(--text-secondary)' }}>
                         {m.sender === 'user' ? 'Bạn' : 'Trợ lý học thuật AI'}
                       </span>
                     </div>
@@ -440,7 +440,7 @@ export const AiChatWidget: React.FC = () => {
                           padding: '6px 8px',
                           backgroundColor: 'rgba(37, 99, 235, 0.08)',
                           borderRadius: '6px',
-                          fontSize: '0.6875rem',
+                          fontSize: '0.75rem',
                           color: 'var(--primary)',
                           display: 'flex',
                           alignItems: 'center',
@@ -461,7 +461,7 @@ export const AiChatWidget: React.FC = () => {
                             type="button"
                             onClick={() => handleSend(act)}
                             style={{
-                              fontSize: '0.6875rem',
+                              fontSize: '0.75rem',
                               padding: '3px 8px',
                               borderRadius: '4px',
                               backgroundColor: 'var(--surface)',
@@ -482,7 +482,7 @@ export const AiChatWidget: React.FC = () => {
 
                     <div 
                       style={{
-                        fontSize: '0.625rem',
+                        fontSize: '0.75rem',
                         marginTop: '4px',
                         color: m.sender === 'user' ? 'rgba(255,255,255,0.7)' : 'var(--text-muted)',
                         textAlign: m.sender === 'user' ? 'right' : 'left'
@@ -564,7 +564,7 @@ export const AiChatWidget: React.FC = () => {
           <div 
             style={{ 
               padding: '6px 12px 7px', 
-              fontSize: '0.625rem', 
+              fontSize: '0.75rem', 
               color: 'var(--text-muted)', 
               textAlign: 'center', 
               backgroundColor: 'var(--surface-subtle)', 

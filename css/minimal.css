@@ -829,9 +829,9 @@ table tbody tr:hover td {
   transition: transform var(--transition-normal), opacity var(--transition-normal);
 }
 
-.progress-bar-fill.bg-success { background: linear-gradient(135deg, #10B981, #059669); }
-.progress-bar-fill.bg-warning { background: linear-gradient(135deg, #F59E0B, #D97706); }
-.progress-bar-fill.bg-danger { background: linear-gradient(135deg, #EF4444, #DC2626); }
+.progress-bar-fill.bg-success { background: linear-gradient(135deg, #059669, #047857); }
+.progress-bar-fill.bg-warning { background: linear-gradient(135deg, #D97706, #B45309); }
+.progress-bar-fill.bg-danger { background: linear-gradient(135deg, #DC2626, #B91C1C); }
 .progress-bar-fill.bg-info { background: linear-gradient(135deg, #2563EB, #1D4ED8); }
 
 /* ==========================================================================
