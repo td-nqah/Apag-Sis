@@ -271,7 +271,9 @@ export const StudentNotifications: React.FC = () => {
                   color: 'var(--text-secondary)', 
                   margin: '6px 0 0 0',
                   lineHeight: 1.6,
-                  maxWidth: '720px'
+                  maxWidth: '720px',
+                  textIndent: '1.27cm',
+                  textAlign: 'justify'
                 }}
               >
                 {n.content}
