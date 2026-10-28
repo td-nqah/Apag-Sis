@@ -186,19 +186,19 @@
   border: none;
   background: transparent;
   outline: none;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--text-primary);
   width: 100%;
 }
 
 .navbar-search-box input::placeholder {
-  color: var(--text-muted);
+  color: var(--text-secondary, #475569);
 }
 
 .navbar-search-box .search-icon {
   width: 15px;
   height: 15px;
-  color: var(--text-muted);
+  color: var(--text-secondary, #475569);
   flex-shrink: 0;
 }
 

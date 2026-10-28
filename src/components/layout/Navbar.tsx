@@ -116,19 +116,21 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div 
           className="navbar-center"
         >
-          <div 
+          <button 
+            type="button"
             className="navbar-search-btn"
             onClick={() => setIsCommandBarOpen(true)}
             title="Tìm kiếm nhanh (Ctrl + K)"
+            aria-label="Tìm kiếm nhanh học phần, sinh viên, quy chế (Ctrl + K)"
           >
             <div className="navbar-search-inner">
-              <Search size={14} className="text-muted flex-shrink-0" />
+              <Search size={15} style={{ color: 'var(--text-secondary, #475569)', flexShrink: 0 }} />
               <span className="navbar-search-text">Tìm kiếm học phần, sinh viên, quy chế...</span>
             </div>
             <kbd className="navbar-search-kbd">
               Ctrl + K
             </kbd>
-          </div>
+          </button>
         </div>
 
         {/* Right Utilities: Language, Theme, Notification, User Avatar */}
@@ -152,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   right: '6px',
                   width: '7px',
                   height: '7px',
-                  backgroundColor: '#EF4444',
+                  backgroundColor: 'var(--danger, #B91C1C)',
                   borderRadius: '50%',
                   border: '1.5px solid var(--surface)'
                 }}

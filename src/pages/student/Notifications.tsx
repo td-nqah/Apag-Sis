@@ -270,10 +270,9 @@ export const StudentNotifications: React.FC = () => {
                   fontSize: '0.875rem', 
                   color: 'var(--text-secondary)', 
                   margin: '6px 0 0 0',
-                  lineHeight: 1.6,
-                  maxWidth: '720px',
-                  textIndent: '1.27cm',
-                  textAlign: 'justify'
+                  lineHeight: 1.55,
+                  maxWidth: '65ch',
+                  textAlign: 'left'
                 }}
               >
                 {n.content}

@@ -120,21 +120,28 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #E8ECF2;
-    box-shadow: inset 1.5px 1.5px 3.5px rgba(166, 178, 198, 0.35), inset -1.5px -1.5px 3.5px rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background-color: var(--surface, #FFFFFF);
+    box-shadow: var(--shadow-xs, 0 1px 2px rgba(15, 23, 42, 0.04));
+    border: 1px solid var(--border, #CBD5E1);
     border-radius: 10px;
     padding: 6px 14px;
     cursor: pointer;
+    font-family: inherit;
+    text-align: left;
     transition: all 150ms ease-out;
+  }
+
+  .navbar-search-btn:hover {
+    border-color: var(--primary, #1D4ED8);
+    background-color: var(--surface-hover, #F8FAFC);
   }
 
   .navbar-search-inner {
     display: flex;
     align-items: center;
-    gap: 8px;
-    color: var(--text-secondary);
-    font-size: 0.8125rem;
+    gap: 10px;
+    color: var(--text-secondary, #334155);
+    font-size: 0.875rem;
     overflow: hidden;
   }
 
@@ -142,17 +149,19 @@ canvas {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--text-secondary, #334155);
+    font-weight: 500;
   }
 
   .navbar-search-kbd {
     font-size: 0.75rem;
     padding: 2px 7px;
     border-radius: 6px;
-    background-color: #FFFFFF;
-    border: 1px solid rgba(208, 218, 232, 0.7);
-    color: var(--text-secondary);
+    background-color: var(--surface-subtle, #F1F5F9);
+    border: 1px solid var(--border, #CBD5E1);
+    color: var(--text-primary, #1E293B);
     font-weight: 600;
-    box-shadow: -1px -1px 2px rgba(255,255,255,0.9), 1px 1px 3px rgba(166,178,198,0.25);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
     flex-shrink: 0;
   }
 
@@ -461,7 +470,7 @@ canvas {
 
   #pageTitleText,
   .breadcrumb-current {
-    font-size: 0.8125rem !important;
+    font-size: 0.875rem !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -713,7 +722,7 @@ canvas {
   }
 
   .breadcrumb-current {
-    font-size: 0.8125rem !important;
+    font-size: 0.875rem !important;
     max-width: 160px;
     white-space: nowrap;
     overflow: hidden;
@@ -741,7 +750,7 @@ canvas {
 
   .btn {
     padding: 7px 12px !important;
-    font-size: 0.8125rem !important;
+    font-size: 0.875rem !important;
   }
 
   /* Compact Floating AI Launcher */
