@@ -3,8 +3,8 @@
 // Phân loại trực quan: Bình thường (Xanh) - Nhắc nhở (Vàng) - Cảnh báo (Đỏ)
 // ==========================================================================
 
-import React, { useState } from 'react';
-import { Bell, CheckCheck, AlertCircle, AlertTriangle, Info, Calendar } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Bell, CheckCheck, AlertCircle, AlertTriangle, Info, Calendar, Eye, X, Clock, Building2 } from 'lucide-react';
 import { Utils } from '../../utils/utils';
 
 export type NotifType = 'normal' | 'reminder' | 'warning';
@@ -21,6 +21,7 @@ interface Notif {
 
 export const StudentNotifications: React.FC = () => {
   const [filter, setFilter] = useState('all');
+  const [selectedNotif, setSelectedNotif] = useState<Notif | null>(null);
   const [notifs, setNotifs] = useState<Notif[]>([
     {
       id: 1,
@@ -83,9 +84,25 @@ export const StudentNotifications: React.FC = () => {
     Utils.showToast('Đã đánh dấu đọc toàn bộ thông báo', 'success');
   };
 
-  const handleToggleRead = (id: number) => {
-    setNotifs(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
+  const handleOpenDetail = (notif: Notif) => {
+    setSelectedNotif(notif);
+    if (!notif.read) {
+      setNotifs(prev => prev.map(n => n.id === notif.id ? { ...n, read: true } : n));
+    }
   };
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedNotif(null);
+      }
+    };
+    if (selectedNotif) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedNotif]);
 
   const filteredNotifs = notifs.filter(n => {
     if (filter === 'unread') return !n.read;
@@ -196,92 +213,263 @@ export const StudentNotifications: React.FC = () => {
         </div>
       </div>
 
-      {/* Notifications List */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      {/* Notifications List - Compact Title Only + View Detail Action */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {filteredNotifs.map(n => {
           const meta = getNotifMeta(n.type, n.read);
 
           return (
             <div 
               key={n.id}
-              className="minimal-card p-4"
-              onClick={() => handleToggleRead(n.id)}
+              className="minimal-card"
+              onClick={() => handleOpenDetail(n)}
               style={{ 
-                padding: '16px 20px', 
+                padding: '14px 20px', 
                 cursor: 'pointer',
                 backgroundColor: meta.cardBg,
                 border: !n.read ? `1px solid ${meta.borderColor}` : '1px solid var(--border)',
-                transition: 'border-color var(--transition-fast), background-color var(--transition-fast)'
+                transition: 'border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '12px'
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px', marginBottom: '6px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                  {/* Badge danh mục theo mã màu tương ứng */}
+              {/* Left: Badge + Unread Indicator Dot + Title */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: '1 1 500px', minWidth: '280px' }}>
+                <span 
+                  style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    padding: '3px 10px',
+                    borderRadius: '999px',
+                    backgroundColor: meta.accentBg,
+                    color: meta.badgeText,
+                    border: `1px solid ${meta.badgeBorder}`,
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0
+                  }}
+                >
+                  {n.category}
+                </span>
+
+                <h3 
+                  style={{
+                    fontSize: '0.9375rem',
+                    fontWeight: n.read ? 600 : 700,
+                    color: 'var(--text-primary)',
+                    margin: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}
+                >
+                  {!n.read && (
+                    <span 
+                      style={{
+                        width: '8px',
+                        height: '8px',
+                        borderRadius: '50%',
+                        backgroundColor: meta.borderColor,
+                        display: 'inline-block',
+                        flexShrink: 0
+                      }} 
+                      title="Chưa đọc"
+                    />
+                  )}
+                  <span>{n.title}</span>
+                </h3>
+              </div>
+
+              {/* Right: Timestamp + Nút Xem chi tiết */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexShrink: 0 }}>
+                <span className="text-xs text-muted" style={{ fontSize: '0.8125rem', whiteSpace: 'nowrap' }}>
+                  {n.time}
+                </span>
+
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleOpenDetail(n);
+                  }}
+                  style={{
+                    fontSize: '0.8125rem',
+                    padding: '6px 14px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontWeight: 600,
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  <Eye size={14} />
+                  <span>Xem chi tiết</span>
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Màn hình nhỏ (Modal) hiển thị toàn bộ nội dung thông báo */}
+      {selectedNotif && (
+        <div 
+          className="modal-backdrop active"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(15, 23, 42, 0.45)',
+            backdropFilter: 'blur(4px)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '16px'
+          }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setSelectedNotif(null);
+          }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalNotifTitle"
+            style={{
+              width: '100%',
+              maxWidth: '560px',
+              backgroundColor: 'var(--surface, #FFFFFF)',
+              borderRadius: '16px',
+              border: '1px solid var(--border)',
+              boxShadow: 'var(--shadow-modal)',
+              overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+              maxHeight: '90vh'
+            }}
+          >
+            {/* Modal Header */}
+            <div 
+              style={{ 
+                padding: '18px 20px', 
+                borderBottom: '1px solid var(--border)',
+                display: 'flex',
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
+                gap: '12px',
+                backgroundColor: 'var(--surface-subtle, #F8FAFC)'
+              }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span 
                     style={{
                       fontSize: '0.75rem',
                       fontWeight: 600,
                       padding: '2.5px 9px',
                       borderRadius: '999px',
-                      backgroundColor: meta.accentBg,
-                      color: meta.badgeText,
-                      border: `1px solid ${meta.badgeBorder}`,
-                      whiteSpace: 'nowrap'
+                      backgroundColor: getNotifMeta(selectedNotif.type, selectedNotif.read).accentBg,
+                      color: getNotifMeta(selectedNotif.type, selectedNotif.read).badgeText,
+                      border: `1px solid ${getNotifMeta(selectedNotif.type, selectedNotif.read).badgeBorder}`
                     }}
                   >
-                    {n.category}
+                    {selectedNotif.category}
                   </span>
-
-                  <h3 
-                    style={{
-                      fontSize: '0.9375rem',
-                      fontWeight: n.read ? 600 : 700,
-                      color: 'var(--text-primary)',
-                      margin: 0,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px'
-                    }}
-                  >
-                    {!n.read && (
-                      <span 
-                        style={{
-                          width: '8px',
-                          height: '8px',
-                          borderRadius: '50%',
-                          backgroundColor: meta.borderColor,
-                          display: 'inline-block',
-                          flexShrink: 0
-                        }} 
-                        title="Chưa đọc"
-                      />
-                    )}
-                    <span>{n.title}</span>
-                  </h3>
+                  <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    <Clock size={13} />
+                    {selectedNotif.time}
+                  </span>
                 </div>
-
-                <span className="text-xs text-muted" style={{ fontSize: '0.75rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
-                  {n.time}
-                </span>
+                <h2 
+                  id="modalNotifTitle"
+                  style={{ 
+                    fontSize: '1.0625rem', 
+                    fontWeight: 700, 
+                    color: 'var(--text-primary)', 
+                    margin: 0,
+                    lineHeight: 1.4
+                  }}
+                >
+                  {selectedNotif.title}
+                </h2>
               </div>
-
-              <p 
-                className="notif-description"
-                style={{ 
-                  fontSize: '0.875rem', 
-                  color: 'var(--text-secondary)', 
-                  margin: '6px 0 0 0',
-                  lineHeight: 1.55,
-                  maxWidth: '48ch',
-                  textAlign: 'left'
+              
+              <button
+                type="button"
+                onClick={() => setSelectedNotif(null)}
+                aria-label="Đóng hộp thoại"
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: '6px',
+                  borderRadius: '8px',
+                  color: 'var(--text-secondary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}
               >
-                {n.content}
-              </p>
+                <X size={18} />
+              </button>
             </div>
-          );
-        })}
-      </div>
+
+            {/* Modal Content - Toàn bộ nội dung thông báo */}
+            <div style={{ padding: '24px 20px', overflowY: 'auto' }}>
+              <div 
+                style={{
+                  backgroundColor: 'var(--surface-nested, #F8FAFC)',
+                  border: '1px solid var(--border-nested, #E2E8F0)',
+                  borderRadius: '12px',
+                  padding: '18px 20px',
+                  marginBottom: '16px'
+                }}
+              >
+                <p 
+                  style={{ 
+                    fontSize: '0.9375rem', 
+                    color: 'var(--text-primary)', 
+                    margin: 0,
+                    lineHeight: 1.65,
+                    textIndent: '1.27cm',
+                    textAlign: 'left'
+                  }}
+                >
+                  {selectedNotif.content}
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
+                <Info size={14} style={{ flexShrink: 0 }} />
+                <span>Thông báo chính thức từ Cổng thông tin Đào tạo & Quản lý Học vụ APAG SIS.</span>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div 
+              style={{ 
+                padding: '14px 20px', 
+                borderTop: '1px solid var(--border)',
+                display: 'flex',
+                justifyContent: 'flex-end',
+                gap: '10px',
+                backgroundColor: 'var(--surface)'
+              }}
+            >
+              <button 
+                type="button" 
+                className="btn btn-primary btn-sm"
+                onClick={() => setSelectedNotif(null)}
+                style={{ minWidth: '90px' }}
+              >
+                Đóng
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
