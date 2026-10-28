@@ -1657,3 +1657,10 @@
   }
 }
 
+/* Optimal Reading Measure for Notifications */
+.notif-description {
+  max-width: 48ch !important;
+  line-height: 1.55;
+  text-align: left;
+}
+

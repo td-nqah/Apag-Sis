@@ -266,12 +266,13 @@ export const StudentNotifications: React.FC = () => {
               </div>
 
               <p 
+                className="notif-description"
                 style={{ 
                   fontSize: '0.875rem', 
                   color: 'var(--text-secondary)', 
                   margin: '6px 0 0 0',
                   lineHeight: 1.55,
-                  maxWidth: '65ch',
+                  maxWidth: '48ch',
                   textAlign: 'left'
                 }}
               >
