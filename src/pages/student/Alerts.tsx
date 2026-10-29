@@ -226,7 +226,7 @@ export const StudentAlerts: React.FC = () => {
                       <AlertOctagon size={20} className="text-danger" style={{ flexShrink: 0, marginTop: '2px' }} />
                       <div style={{ flex: 1 }}>
                         <div className="d-flex justify-between items-center flex-wrap gap-2 mb-1">
-                          <h3 className="font-bold text-sm text-danger">Chưa hoàn thành Học phần tiên quyết LIF2004 (Hệ quản trị cơ sở dữ liệu)</h3>
+                          <h3 className="font-bold text-danger" style={{ fontSize: '1.125rem', margin: 0 }}>Chưa hoàn thành Học phần tiên quyết LIF2004 (Hệ quản trị cơ sở dữ liệu)</h3>
                           <span className="badge badge-danger">Ưu tiên 1</span>
                         </div>
                         <p className="text-secondary mb-2" style={{ fontSize: '0.875rem', lineHeight: 1.55 }}>
@@ -244,7 +244,7 @@ export const StudentAlerts: React.FC = () => {
                       <AlertTriangle size={20} className="text-warning" style={{ flexShrink: 0, marginTop: '2px' }} />
                       <div style={{ flex: 1 }}>
                         <div className="d-flex justify-between items-center flex-wrap gap-2 mb-1">
-                          <h3 className="font-bold text-sm text-warning">Chưa nộp chứng chỉ Ngoại ngữ chuẩn đầu ra B1 (VSTEP / IELTS)</h3>
+                          <h3 className="font-bold text-warning" style={{ fontSize: '1.125rem', margin: 0 }}>Chưa nộp chứng chỉ Ngoại ngữ chuẩn đầu ra B1 (VSTEP / IELTS)</h3>
                           <span className="badge badge-warning">Ưu tiên 2</span>
                         </div>
                         <p className="text-secondary mb-2" style={{ fontSize: '0.875rem', lineHeight: 1.55 }}>

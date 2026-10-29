@@ -362,11 +362,11 @@ export const StudentLearningPath: React.FC = () => {
                   {/* Column Header */}
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                        {sem.semester.split('•')[0]}
+                      <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary, #0F172A)' }}>
+                        {sem.semester.split('•')[1]?.trim() || sem.semester.split('•')[0].trim()}
                       </div>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                        {sem.semester.split('•')[1] || ''}
+                      <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--text-secondary, #334155)', marginTop: '2px' }}>
+                        {sem.semester.split('•')[0].trim()}
                       </div>
                     </div>
 
@@ -374,11 +374,11 @@ export const StudentLearningPath: React.FC = () => {
                       style={{
                         fontSize: '0.75rem',
                         fontWeight: 700,
-                        padding: '2px 8px',
+                        padding: '3px 10px',
                         borderRadius: '999px',
-                        backgroundColor: isOverload ? 'var(--danger-bg)' : isUnderload ? 'var(--warning-bg)' : 'var(--primary-light)',
-                        color: isOverload ? 'var(--danger)' : isUnderload ? 'var(--warning-text)' : 'var(--primary)',
-                        border: `1px solid ${isOverload ? 'var(--danger-border)' : isUnderload ? 'var(--warning-border)' : 'var(--primary-border)'}`
+                        backgroundColor: isOverload ? 'var(--danger-light, #FEF2F2)' : isUnderload ? 'var(--warning-light, #FFFBEB)' : 'var(--primary-light, #EFF6FF)',
+                        color: isOverload ? 'var(--danger, #B91C1C)' : isUnderload ? 'var(--warning, #B45309)' : 'var(--primary, #1D4ED8)',
+                        border: `1px solid ${isOverload ? 'var(--danger-border, #FECACA)' : isUnderload ? 'var(--warning-border, #FDE68A)' : 'var(--primary-border, #BFDBFE)'}`
                       }}
                     >
                       {semCredits} TC

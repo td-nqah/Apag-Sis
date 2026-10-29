@@ -22,6 +22,7 @@ import {
   User as UserIcon,
   LogOut,
   ChevronLeft,
+  Menu,
   LucideIcon
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
@@ -226,6 +227,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     }
   }, [location.pathname]);
 
+  const dashboardPath = user?.role === 'advisor' ? '/advisor/dashboard' : user?.role === 'admin' ? '/admin/dashboard' : '/student/dashboard';
+
   return (
     <>
       {/* Mobile Backdrop Overlay */}
@@ -241,102 +244,185 @@ export const Sidebar: React.FC<SidebarProps> = ({
         className={`app-dual-sidebar ${isCollapsed ? 'collapsed' : ''} ${isMobileOpen ? 'mobile-open' : ''}`}
         id="appSidebar"
       >
-        {/* Unified Sidebar Navigation Panel */}
-        <div className="nav-panel" id="navPanel">
-          {/* Panel Header: Brand Logo & Title */}
-          <div className="nav-panel-header">
-            <NavLink 
-              to={user?.role === 'advisor' ? '/advisor/dashboard' : user?.role === 'admin' ? '/admin/dashboard' : '/student/dashboard'} 
-              className="panel-brand"
-              onClick={onCloseMobile}
-              title="APAG SIS | Hệ thống cố vấn thông minh"
-            >
-              <img 
-                src="/assets/images/apag-logo.png" 
-                alt="APAG SIS Logo" 
-                className="panel-logo"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/assets/images/apag-logo.svg';
-                }}
-              />
-            </NavLink>
-          </div>
-
-          {/* Grouped Secondary Navigation List */}
-          <div className="panel-content" id="panelNavScroll">
-            {categories.map((cat) => {
-              const isSelectedCategory = activeCategoryId === cat.id;
-
-              return (
-                <div 
-                  key={cat.id} 
-                  className={`panel-section ${isSelectedCategory ? 'is-selected-category' : ''}`}
-                >
-                  <div className="panel-section-header">
-                    <span className="panel-section-title">{cat.label}</span>
-                  </div>
-
-                  <ul className="panel-nav-list">
-                    {cat.items.map((item) => {
-                      const ItemIcon = item.icon;
-
-                      return (
-                        <li key={item.to} className="panel-nav-item">
-                          <NavLink
-                            to={item.to}
-                            onClick={onCloseMobile}
-                            className={({ isActive }) => `panel-nav-link ${isActive ? 'active' : ''}`}
-                            title={item.label}
-                          >
-                            <span className="panel-link-accent" />
-                            <ItemIcon size={16} strokeWidth={1.75} className="panel-item-icon" />
-                            <span className="panel-link-text">{item.label}</span>
-
-                            {item.badge && (
-                              <span className={`panel-badge ${item.isAlertBadge ? 'badge-alert' : 'badge-default'}`}>
-                                {item.badge}
-                              </span>
-                            )}
-
-                            {item.isAiTag && (
-                              <span className="panel-ai-tag">
-                                AI
-                              </span>
-                            )}
-                          </NavLink>
-                        </li>
-                      );
-                    })}
-                  </ul>
+        {isCollapsed ? (
+          /* ============================================================ */
+          /* Collapsed Mini Sidebar (Icon Rail) as in Image 4             */
+          /* ============================================================ */
+          <div className="sidebar-rail-inner">
+            {/* Top: Logo letter "A" and Toggle Button */}
+            <div className="rail-top">
+              <NavLink 
+                to={dashboardPath}
+                className="rail-brand-link"
+                title="APAG SIS"
+                aria-label="Về trang chủ APAG SIS"
+              >
+                <div className="rail-brand-emblem">
+                  <span>A</span>
                 </div>
-              );
-            })}
-          </div>
+              </NavLink>
 
-          {/* Panel Footer: Logout & Collapse Toggle */}
-          <div className="panel-footer">
-            <button 
-              type="button"
-              onClick={handleLogout}
-              className="panel-footer-btn logout-btn"
-              title="Đăng xuất khỏi hệ thống"
-            >
-              <LogOut size={15} strokeWidth={1.75} />
-              <span>Đăng xuất</span>
-            </button>
+              <button
+                type="button"
+                className="rail-toggle-btn"
+                onClick={onToggleCollapse}
+                title="Mở rộng menu"
+                aria-label="Mở rộng menu"
+              >
+                <Menu size={18} />
+              </button>
+            </div>
 
-            <button
-              type="button"
-              className="panel-footer-btn d-none d-lg-flex"
-              onClick={onToggleCollapse}
-              title="Thu gọn menu"
-              aria-label="Thu gọn menu"
-            >
-              <ChevronLeft size={15} strokeWidth={1.75} />
-              <span>Thu gọn</span>
-            </button>
+            {/* Scrollable Icon List grouped with dividers */}
+            <div className="rail-content">
+              {categories.map((cat, catIdx) => (
+                <div key={cat.id} className="rail-group">
+                  {catIdx > 0 && <div className="rail-group-divider" />}
+                  {cat.items.map((item) => {
+                    const ItemIcon = item.icon;
+                    const isActive = location.pathname === item.to || location.pathname.startsWith(item.to + '/');
+
+                    return (
+                      <NavLink
+                        key={item.to}
+                        to={item.to}
+                        onClick={onCloseMobile}
+                        className={`rail-nav-btn ${isActive ? 'active' : ''}`}
+                        title={item.label}
+                        aria-label={item.label}
+                      >
+                        <ItemIcon size={18} strokeWidth={isActive ? 2.2 : 1.75} />
+                        {item.badge && <span className="rail-badge-dot" />}
+                      </NavLink>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom: Letter A Avatar & Logout Button */}
+            <div className="rail-bottom">
+              <div className="rail-user-avatar" title={user?.fullName || user?.name || 'Tài khoản'}>
+                <span>A</span>
+              </div>
+
+              <button 
+                type="button"
+                onClick={handleLogout}
+                className="rail-logout-btn"
+                title="Đăng xuất"
+                aria-label="Đăng xuất khỏi hệ thống"
+              >
+                <LogOut size={16} strokeWidth={1.8} />
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          /* ============================================================ */
+          /* Expanded Full Navigation Panel                               */
+          /* ============================================================ */
+          <div className="nav-panel" id="navPanel">
+            {/* Panel Header: Brand Logo & Title */}
+            <div className="nav-panel-header">
+              <NavLink 
+                to={dashboardPath} 
+                className="panel-brand"
+                onClick={onCloseMobile}
+                title="APAG SIS | Hệ thống cố vấn thông minh"
+              >
+                <img 
+                  src="/assets/images/apag-logo.png" 
+                  alt="APAG SIS Logo" 
+                  className="panel-logo"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/assets/images/apag-logo.svg';
+                  }}
+                />
+              </NavLink>
+            </div>
+
+            {/* Grouped Secondary Navigation List */}
+            <div className="panel-content" id="panelNavScroll">
+              {categories.map((cat, catIdx) => {
+                const isSelectedCategory = activeCategoryId === cat.id;
+
+                return (
+                  <div key={cat.id} className="panel-section-wrapper">
+                    {/* Dòng kẻ xám ngăn cách giữa các nhóm chức năng */}
+                    {catIdx > 0 && <div className="sidebar-group-divider" />}
+
+                    <div 
+                      className={`panel-section ${isSelectedCategory ? 'is-selected-category' : ''}`}
+                    >
+                      {/* Tiêu đề nhóm chức năng kèm đường kẻ ngang xám */}
+                      <div className="panel-section-header">
+                        <span className="panel-section-title">{cat.label}</span>
+                        <div className="panel-section-header-line" />
+                      </div>
+
+                      <ul className="panel-nav-list">
+                        {cat.items.map((item) => {
+                          const ItemIcon = item.icon;
+
+                          return (
+                            <li key={item.to} className="panel-nav-item">
+                              <NavLink
+                                to={item.to}
+                                onClick={onCloseMobile}
+                                className={({ isActive }) => `panel-nav-link ${isActive ? 'active' : ''}`}
+                                title={item.label}
+                              >
+                                <span className="panel-link-accent" />
+                                <ItemIcon size={16} strokeWidth={1.75} className="panel-item-icon" />
+                                <span className="panel-link-text">{item.label}</span>
+
+                                {item.badge && (
+                                  <span className={`panel-badge ${item.isAlertBadge ? 'badge-alert' : 'badge-default'}`}>
+                                    {item.badge}
+                                  </span>
+                                )}
+
+                                {item.isAiTag && (
+                                  <span className="panel-ai-tag">
+                                    AI
+                                  </span>
+                                )}
+                              </NavLink>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Panel Footer: Logout & Collapse Toggle */}
+            <div className="panel-footer">
+              <button 
+                type="button"
+                onClick={handleLogout}
+                className="panel-footer-btn logout-btn"
+                title="Đăng xuất khỏi hệ thống"
+              >
+                <LogOut size={15} strokeWidth={1.75} />
+                <span>Đăng xuất</span>
+              </button>
+
+              <button
+                type="button"
+                className="panel-footer-btn d-none d-lg-flex"
+                onClick={onToggleCollapse}
+                title="Thu gọn menu"
+                aria-label="Thu gọn menu"
+              >
+                <ChevronLeft size={15} strokeWidth={1.75} />
+                <span>Thu gọn</span>
+              </button>
+            </div>
+          </div>
+        )}
       </aside>
     </>
   );

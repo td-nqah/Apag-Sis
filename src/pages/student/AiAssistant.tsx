@@ -73,7 +73,7 @@ export const StudentAiAssistant: React.FC = () => {
 
   return (
     <div className="ai-dedicated-page" style={{ height: 'calc(100vh - 90px)', display: 'flex', flexDirection: 'column' }}>
-      <div className="minimal-card" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: 0 }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: 0, backgroundColor: 'var(--surface, #FFFFFF)', border: '1px solid var(--border)', borderRadius: '16px' }}>
         {/* Sample chips */}
         <div style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-subtle)', background: 'var(--surface-subtle)', display: 'flex', gap: '8px', overflowX: 'auto', flexShrink: 0 }}>
           {samplePrompts.map((p, idx) => (
@@ -89,20 +89,8 @@ export const StudentAiAssistant: React.FC = () => {
           ))}
         </div>
 
-        {/* Messages Stream Viewport with Diagonal Watermark */}
+        {/* Messages Stream Viewport */}
         <div className="ai-conversation-viewport" style={{ flex: 1, position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: 0 }}>
-          {/* Subtle Diagonal APAG Logo Watermark */}
-          <div className="ai-watermark-layer" aria-hidden="true">
-            <img 
-              src="/assets/images/apag-logo.png" 
-              alt="" 
-              className="ai-watermark-logo"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = '/assets/images/apag-logo.svg';
-              }}
-            />
-          </div>
-
           {/* Messages Stream */}
           <div 
             className="ai-messages-scroll"
@@ -128,18 +116,18 @@ export const StudentAiAssistant: React.FC = () => {
                   style={{ 
                     maxWidth: '82%', 
                     padding: '14px 18px', 
-                    borderRadius: m.sender === 'user' ? '14px 14px 2px 14px' : '14px 14px 14px 2px',
-                    background: m.sender === 'user' ? '#2563EB' : 'var(--surface-subtle)',
+                    borderRadius: m.sender === 'user' ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
+                    background: m.sender === 'user' ? 'var(--primary, #1D4ED8)' : 'var(--surface-subtle, #F1F4F9)',
                     color: m.sender === 'user' ? '#FFFFFF' : 'var(--text-primary)',
-                    border: m.sender === 'user' ? 'none' : '1px solid var(--border)',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+                    border: 'none',
+                    boxShadow: 'none',
                     whiteSpace: 'pre-line',
                     fontSize: '0.875rem',
                     lineHeight: 1.6
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <div style={{ width: '22px', height: '22px', borderRadius: '6px', background: m.sender === 'user' ? 'rgba(255,255,255,0.25)' : 'linear-gradient(135deg, #2563EB, #7C3AED)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
+                    <div style={{ width: '22px', height: '22px', borderRadius: '6px', background: m.sender === 'user' ? 'rgba(255,255,255,0.25)' : 'var(--primary, #1D4ED8)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                       {m.sender === 'user' ? <span style={{ fontSize: '12px', fontWeight: 700 }}>SV</span> : <Bot size={13} />}
                     </div>
                     <span style={{ fontSize: '0.75rem', fontWeight: 600, color: m.sender === 'user' ? 'rgba(255,255,255,0.9)' : 'var(--text-secondary)' }}>
