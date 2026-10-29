@@ -58,12 +58,12 @@
   --surface-border: #D7DEE8;
 
   /* Unified Sidebar Dimensions */
-  --nav-rail-width: 72px;
+  --nav-rail-width: 68px;
   --nav-panel-width: 250px;
   --sidebar-width: 250px;
   --sidebar-expanded: 250px;
-  --sidebar-collapsed-width: 72px;
-  --sidebar-collapsed: 72px;
+  --sidebar-collapsed-width: 68px;
+  --sidebar-collapsed: 68px;
   --navbar-height: 58px;
 
   /* Soft UI / Neumorphism Paired Elevation & Inset Tokens */

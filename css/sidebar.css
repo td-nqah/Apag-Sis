@@ -1,247 +1,37 @@
 /* ==========================================================================
    APAG - Dual-Zone Navigation Sidebar Styles
-   Reference-Driven Architecture: Primary Icon Rail (68px) + Secondary Panel (216px)
-   Visual System: Soft UI · Neumorphism · Frosted Glass · Sculpted Tactile Depth
+   Visual System: Soft UI · Neumorphism · Frosted Glass · Tactile Depth
    ========================================================================== */
 
-/* Root Sidebar Shell - Modern Floating Capsule with Rounded Corners */
+/* Root Sidebar Shell - Edge Attached Original Layout */
 .app-dual-sidebar,
 .sidebar,
 .app-sidebar {
   position: fixed;
-  top: 12px;
-  bottom: 12px;
-  left: 12px;
-  height: calc(100vh - 24px);
+  top: 0;
+  bottom: 0;
+  left: 0;
   width: var(--sidebar-width, 250px);
   display: flex;
   flex-direction: column;
   z-index: 100;
   user-select: none;
-  background-color: var(--surface, #FFFFFF);
-  border: 1px solid var(--border, #D7DEE8);
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.07);
-  transition: width 240ms cubic-bezier(0.16, 1, 0.3, 1), transform 240ms cubic-bezier(0.16, 1, 0.3, 1), border-radius 240ms ease;
-  overflow: hidden;
+  background-color: #F1F4F9;
+  border-right: 1px solid rgba(208, 218, 232, 0.85);
+  box-shadow: 2px 0 10px rgba(166, 178, 198, 0.12);
+  transition: width var(--transition-normal, 200ms ease);
 }
 
-/* Collapsed State - Floating Dark Icon Rail matching Image 4 */
+/* Collapsed State - Mini Icon-Only Sidebar (68px) */
 .app-dual-sidebar.collapsed,
 .sidebar.collapsed,
 .sidebar-collapsed .app-dual-sidebar,
 .sidebar-collapsed .sidebar {
-  width: var(--sidebar-collapsed-width, 72px);
+  width: var(--sidebar-collapsed-width, 68px);
   transform: none;
   pointer-events: auto;
-  border-radius: 36px;
-  background-color: #0E131F;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  border-right: 1px solid rgba(208, 218, 232, 0.85);
 }
-
-/* ==========================================================================
-   Collapsed Icon Rail Layout & Components (Pixel-matched to Image 4)
-   ========================================================================== */
-.sidebar-rail-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0 16px;
-  background-color: #0E131F;
-  color: #FFFFFF;
-  box-sizing: border-box;
-}
-
-/* Top Section: "A" Brand Emblem + Menu Toggle */
-.rail-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  flex-shrink: 0;
-}
-
-.rail-brand-link {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.rail-brand-emblem {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: #1A2234;
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FFFFFF;
-  font-weight: 800;
-  font-size: 1.125rem;
-  font-family: var(--font-heading, sans-serif);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  transition: transform 180ms ease, background-color 180ms ease;
-}
-
-.rail-brand-emblem:hover {
-  transform: scale(1.06);
-  background-color: #232D45;
-}
-
-.rail-toggle-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background-color: #1A2234;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #94A3B8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 180ms ease;
-}
-
-.rail-toggle-btn:hover {
-  color: #FFFFFF;
-  background-color: #252F48;
-  transform: scale(1.04);
-}
-
-/* Middle: Scrollable Icon Categories */
-.rail-content {
-  flex: 1;
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.rail-content::-webkit-scrollbar {
-  display: none;
-  width: 0;
-}
-
-.rail-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.rail-group-divider {
-  width: 28px;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.12);
-  margin: 8px auto;
-  flex-shrink: 0;
-}
-
-.rail-nav-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #94A3B8;
-  text-decoration: none;
-  position: relative;
-  transition: all 180ms ease;
-  margin: 2px auto;
-}
-
-.rail-nav-btn:hover {
-  color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.08);
-  transform: translateY(-1px);
-}
-
-/* Active Icon in Rail: White filled circle with dark icon inside (exact match to Image 4) */
-.rail-nav-btn.active {
-  background-color: #FFFFFF !important;
-  color: #0E131F !important;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
-  transform: scale(1.05);
-}
-
-.rail-badge-dot {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #EF4444;
-  border: 1.5px solid #0E131F;
-}
-
-/* Bottom Section: Letter A User Avatar + Red Logout Circle */
-.rail-bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  flex-shrink: 0;
-}
-
-.rail-user-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: #1A2234;
-  border: 1.5px solid rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 1rem;
-  font-family: var(--font-heading, sans-serif);
-}
-
-.rail-logout-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: rgba(239, 68, 68, 0.12);
-  border: 1.5px solid rgba(239, 68, 68, 0.45);
-  color: #EF4444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 180ms ease;
-  margin-top: 2px;
-}
-
-.rail-logout-btn:hover {
-  background-color: #EF4444;
-  color: #FFFFFF;
-  border-color: #EF4444;
-  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.4);
-  transform: scale(1.05);
-}
-
-
 
 /* Navigation Panel (Full Width of Sidebar Shell) */
 .nav-panel {
@@ -265,6 +55,7 @@
   border-bottom: 1px solid rgba(208, 218, 232, 0.7);
   flex-shrink: 0;
   text-align: center;
+  transition: padding var(--transition-fast, 150ms ease);
 }
 
 .panel-brand {
@@ -292,105 +83,26 @@
   transform: scale(1.03);
 }
 
-.panel-brand-sub {
-  display: none !important;
-}
-
-.panel-close-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: var(--radius-sm, 8px);
-  background-color: #E8ECF2;
-  border: 1px solid rgba(208, 218, 232, 0.7);
-  color: var(--text-secondary);
+/* Collapsed Logo (Chữ A trong huy hiệu tròn / bo góc) */
+.panel-logo-collapsed {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--primary, #1D4ED8);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-fast);
+  font-weight: 800;
+  font-size: 1.125rem;
+  font-family: var(--font-heading, sans-serif);
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.28);
+  margin: 0 auto;
+  transition: transform var(--transition-fast, 150ms ease);
 }
 
-.panel-close-btn:hover {
-  background-color: #F4F7FB;
-  color: var(--danger);
-}
-
-/* User Profile Snippet Card (Soft Neumorphic Tile) */
-.panel-user-card {
-  margin: 12px 12px 8px;
-  padding: 9px 11px;
-  background-color: #F6F8FC;
-  border-radius: var(--radius-md, 10px);
-  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.95), 2px 2px 6px rgba(166, 178, 198, 0.32);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  flex-shrink: 0;
-}
-
-.panel-user-card:hover {
-  background-color: #FFFFFF;
-  box-shadow: -3px -3px 8px rgba(255, 255, 255, 1), 3px 3px 8px rgba(160, 174, 196, 0.42);
-  transform: translateY(-1px);
-}
-
-.panel-avatar-wrap {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.panel-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-}
-
-.panel-online-indicator {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--success);
-  border: 1.5px solid #F6F8FC;
-}
-
-.panel-user-info {
-  flex: 1;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.panel-user-name {
-  font-size: 0.78125rem; /* 12.5px */
-  font-weight: 600;
-  color: var(--text-primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.25;
-}
-
-.panel-user-role {
-  font-size: 0.75rem; /* 12px min floor */
-  color: var(--text-muted);
-  line-height: 1.25;
-  margin-top: 1px;
-}
-
-.panel-user-chevron {
-  flex-shrink: 0;
+.panel-logo-collapsed:hover {
+  transform: scale(1.05);
 }
 
 /* Secondary Navigation Content List */
@@ -401,7 +113,7 @@
   padding: 10px 10px 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .panel-content::-webkit-scrollbar {
@@ -414,41 +126,36 @@
 
 .panel-content::-webkit-scrollbar-thumb {
   background: rgba(180, 195, 218, 0.6);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-full, 9999px);
 }
 
-/* Section Grouping & Divider Lines */
-.panel-section-wrapper {
+/* Section Grouping */
+.panel-section {
   display: flex;
   flex-direction: column;
+  gap: 3px;
   width: 100%;
 }
 
 .sidebar-group-divider {
   height: 1px;
-  background-color: var(--border, #E2E8F0);
-  margin: 6px 12px 10px;
-}
-
-.panel-section {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  background-color: rgba(208, 218, 232, 0.65);
+  margin: 4px 6px 8px;
 }
 
 .panel-section-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 4px 12px 6px;
+  gap: 8px;
+  padding: 4px 8px 3px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .panel-section-title {
   font-size: 0.8125rem; /* 13px */
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--text-secondary, #475569);
   white-space: nowrap;
 }
@@ -456,15 +163,11 @@
 .panel-section-header-line {
   flex: 1;
   height: 1px;
-  background-color: var(--border, #CBD5E1);
+  background-color: rgba(208, 218, 232, 0.65);
 }
 
 .panel-section.is-selected-category .panel-section-title {
   color: var(--primary, #1D4ED8);
-}
-
-.panel-section.is-selected-category .panel-section-header-line {
-  background-color: var(--primary-border, rgba(29, 78, 216, 0.25));
 }
 
 .panel-nav-list {
@@ -474,6 +177,7 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
+  width: 100%;
 }
 
 .panel-nav-item {
@@ -493,7 +197,7 @@
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-fast, 150ms ease);
   position: relative;
 }
 
@@ -505,7 +209,7 @@
   width: 3px;
   height: 16px;
   border-radius: 0 4px 4px 0;
-  background-color: var(--primary);
+  background-color: var(--primary, #1D4ED8);
   opacity: 0;
   transform-origin: center;
   transition: transform var(--transition-fast), opacity var(--transition-fast);
@@ -528,7 +232,7 @@
 
 /* Unselected Hover */
 .panel-nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.7);
   color: var(--text-primary);
   box-shadow: -1.5px -1.5px 4px rgba(255, 255, 255, 0.9), 1.5px 1.5px 4px rgba(166, 178, 198, 0.25);
   border-color: rgba(255, 255, 255, 0.8);
@@ -542,7 +246,7 @@
 /* Active Route State (Reference-Matching Softly Elevated Surface) */
 .panel-nav-link.active {
   background-color: #FFFFFF;
-  color: var(--primary);
+  color: var(--primary, #1D4ED8);
   font-weight: 600;
   box-shadow: -2.5px -2.5px 6px rgba(255, 255, 255, 1), 2.5px 2.5px 6px rgba(160, 174, 196, 0.38);
   border: 1px solid rgba(37, 99, 235, 0.18);
@@ -554,7 +258,7 @@
 }
 
 .panel-nav-link.active .panel-item-icon {
-  color: var(--primary);
+  color: var(--primary, #1D4ED8);
   opacity: 1;
 }
 
@@ -563,12 +267,12 @@
   font-size: 0.75rem; /* 12px min floor */
   font-weight: 700;
   padding: 1.5px 7px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-pill, 9999px);
   line-height: 1.3;
 }
 
 .panel-badge.badge-default {
-  background-color: var(--primary);
+  background-color: var(--primary, #1D4ED8);
   color: #FFFFFF;
 }
 
@@ -612,22 +316,14 @@
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-fast, 150ms ease);
 }
 
 .panel-footer-btn:hover {
   background-color: #FFFFFF;
-  color: var(--primary);
+  color: var(--primary, #1D4ED8);
   box-shadow: -1.5px -1.5px 3.5px rgba(255, 255, 255, 0.9), 1.5px 1.5px 3.5px rgba(166, 178, 198, 0.25);
   border-color: rgba(208, 218, 232, 0.7);
-}
-
-.panel-footer-btn.active {
-  background-color: #FFFFFF;
-  color: var(--primary);
-  font-weight: 600;
-  box-shadow: -1.5px -1.5px 3.5px rgba(255, 255, 255, 0.9), 1.5px 1.5px 3.5px rgba(166, 178, 198, 0.25);
-  border-color: rgba(37, 99, 235, 0.2);
 }
 
 .panel-footer-btn.logout-btn:hover {
@@ -635,6 +331,93 @@
   color: var(--danger, #B91C1C);
   border-color: var(--danger-border, #FECACA);
   box-shadow: -1.5px -1.5px 3.5px rgba(255, 255, 255, 0.9), 1.5px 1.5px 3.5px rgba(185, 28, 28, 0.15);
+}
+
+/* ==========================================================================
+   Collapsed State Details: Icon Centering, Hiding Text, Compact Header/Footer
+   ========================================================================== */
+.app-dual-sidebar.collapsed .nav-panel-header {
+  padding: 0 8px;
+}
+
+.app-dual-sidebar.collapsed .panel-content {
+  padding: 10px 8px 16px;
+  align-items: center;
+}
+
+.app-dual-sidebar.collapsed .panel-section-title,
+.app-dual-sidebar.collapsed .panel-section-header-line {
+  display: none;
+}
+
+.app-dual-sidebar.collapsed .panel-section-header {
+  padding: 2px 0;
+  justify-content: center;
+}
+
+.app-dual-sidebar.collapsed .sidebar-group-divider {
+  width: 28px;
+  margin: 6px auto;
+}
+
+.app-dual-sidebar.collapsed .panel-nav-link {
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  margin: 2px auto;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.app-dual-sidebar.collapsed .panel-link-text,
+.app-dual-sidebar.collapsed .panel-ai-tag,
+.app-dual-sidebar.collapsed .panel-link-accent {
+  display: none !important;
+}
+
+.app-dual-sidebar.collapsed .panel-item-icon {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.app-dual-sidebar.collapsed .panel-badge {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  min-width: unset;
+  padding: 0;
+  font-size: 0;
+  border-radius: 50%;
+  border: 1.5px solid #F1F4F9;
+}
+
+.app-dual-sidebar.collapsed .panel-nav-link.active {
+  background-color: #FFFFFF;
+  color: var(--primary, #1D4ED8);
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 1), 2px 2px 6px rgba(160, 174, 196, 0.35);
+  border: 1px solid rgba(29, 78, 216, 0.2);
+}
+
+.app-dual-sidebar.collapsed .panel-footer {
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-dual-sidebar.collapsed .panel-footer-btn-text {
+  display: none;
+}
+
+.app-dual-sidebar.collapsed .panel-footer-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 /* ==========================================================================
@@ -671,14 +454,11 @@
     box-shadow: var(--shadow-modal);
     transform: translateX(-100%) !important;
     transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1) !important;
-    border-radius: 0 20px 20px 0 !important;
   }
 
   .app-dual-sidebar.collapsed,
   .sidebar.collapsed {
     width: var(--sidebar-width, 260px) !important;
-    border-radius: 0 20px 20px 0 !important;
-    background-color: var(--surface, #FFFFFF) !important;
   }
 
   .app-dual-sidebar.mobile-open,
