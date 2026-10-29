@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <>
       <header className="navbar" id="appNavbar" style={{ height: '56px', minHeight: '56px' }}>
-        {/* Left: Mobile Toggle, Desktop Collapse/Expand Toggle & Page Title (F-Shape Entry) */}
+        {/* Left: Mobile Toggle & Page Title (F-Shape Entry) */}
         <div className="navbar-left" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button 
             type="button" 
@@ -92,18 +92,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Menu size={18} style={{ display: 'block', margin: 'auto' }} />
           </button>
-
-          {onToggleCollapse && (
-            <button 
-              type="button" 
-              className="navbar-sidebar-toggle" 
-              onClick={onToggleCollapse} 
-              title={isCollapsed ? "Mở rộng menu" : "Thu gọn menu"} 
-              aria-label={isCollapsed ? "Mở rộng menu" : "Thu gọn menu"}
-            >
-              <Menu size={16} style={{ display: 'block', margin: 'auto' }} />
-            </button>
-          )}
 
           <div className="navbar-breadcrumb" id="navbarBreadcrumb" style={{ display: 'flex', alignItems: 'center' }}>
             <span className="breadcrumb-current font-bold" id="pageTitleText" style={{ color: 'var(--text-primary)', fontSize: '0.875rem' }}>
