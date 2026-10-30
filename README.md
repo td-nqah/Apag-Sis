@@ -1,4 +1,4 @@
-# APAG SIS - Hệ thống Quản trị Đào tạo & Cố vấn Học vụ Thông minh
+# APAG SIS – Hệ thống Quản trị Đào tạo & Cố vấn Học vụ Thông minh
 ### Smart Academic Advisory & Student Information System (v2.0.0)
 
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react&logoColor=black)](https://react.dev/)
@@ -8,7 +8,7 @@
 [![WCAG AA](https://img.shields.io/badge/Accessibility-WCAG%20AA%20Compliant-047857)](https://www.w3.org/WAI/WCAG2AA-Conformance)
 [![Thông tư](https://img.shields.io/badge/Quy%20chế-08%2F2021%2FTT--BGDĐT-1D4ED8)](https://moet.gov.vn/)
 
-> **Kiến trúc:** Frontend Single Page Application (SPA) hiệu năng cao • Tối ưu hóa trải nghiệm người dùng theo tiêu chuẩn giáo dục đại học • Sẵn sàng tích hợp API Backend.  
+> **Kiến trúc:** Frontend Single Page Application (SPA) hiệu năng cao – Tối ưu hóa trải nghiệm người dùng theo tiêu chuẩn giáo dục đại học – Sẵn sàng tích hợp API Backend.  
 > **Repository:** [https://github.com/td-nqah/Apag-Sis.git](https://github.com/td-nqah/Apag-Sis.git) (Branch `main` tự động triển khai Vercel Production).
 
 ---
@@ -47,7 +47,7 @@ Hệ thống tuân thủ nghiêm ngặt các nguyên tắc thiết kế hiện �
   - Fallback an toàn: `system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif`.
 - **Sàn kích thước chữ:**
   - Tuyệt đối không sử dụng kích thước dưới `12px` (`0.75rem`).
-  - Toàn bộ chữ chức năng (nút bấm, nhãn input, thông tin giảng viên, địa chỉ văn phòng, mã học phần): tối thiểu `14px` (`0.875rem`) với `line-height: 1.5 - 1.55`.
+  - Toàn bộ chữ chức năng (nút bấm, nhãn input, thông tin giảng viên, địa chỉ văn phòng, mã học phần): tối thiểu `14px` (`0.875rem`) với `line-height: 1.5–1.55`.
 
 ### 2.2. Nhận diện Thương hiệu & Chuẩn Tương phản WCAG AA
 - **Màu chủ đạo APAG:** Sử dụng tông **Royal Blue** (`--primary: #1D4ED8`, `--primary-light: #EFF6FF`, `--primary-hover: #1E40AF`).
@@ -77,6 +77,7 @@ Hệ thống tuân thủ nghiêm ngặt các nguyên tắc thiết kế hiện �
    - Áp dụng chuẩn thể thức văn bản: Thụt đầu dòng đoạn văn `1.27cm` (`text-indent: 1.27cm`).
    - Căn lề đều hai bên (`text-align: justify; line-height: 1.6`).
    - Giới hạn chiều rộng khối đọc tối ưu từ 65–75 ký tự (`max-width: 720px`).
+   - Chuẩn gạch đầu dòng hành chính: Sử dụng dấu gạch ngang en-dash (`–`) chuẩn thể thức văn bản, không sử dụng dấu chấm tròn (bullet).
 
 ---
 
