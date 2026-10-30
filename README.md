@@ -21,7 +21,6 @@
 - [5. Cấu trúc Thư mục Dự án](#5-cấu-trúc-thư-mục-dự-án)
 - [6. Hướng dẫn Khởi chạy & Kiểm thử](#6-hướng-dẫn-khởi-chạy--kiểm-thử)
 - [7. Tài khoản Đăng nhập Demo](#7-tài-khoản-đăng-nhập-demo)
-- [8. Hướng dẫn Tích hợp Backend (API Integration Guide)](#8-hướng-dẫn-tích-hợp-backend-api-integration-guide)
 
 ---
 
@@ -190,19 +189,6 @@ Hệ thống tích hợp sẵn nút chọn nhanh tài khoản tại giao diện 
 | 🎓 **Sinh viên** | `sv_2505httb012` | `123456` | Xem điểm, tiến độ tích lũy, lộ trình học tập, cây tiên quyết, gửi tin nhắn cho CVHT, hỏi Trợ lý AI |
 | 👨‍🏫 **Cố vấn học tập** | `gv_nguyennangthanh` | `123456` | Radar cảnh báo học vụ, xem hồ sơ SV 360°, duyệt lộ trình, gửi thông báo can thiệp |
 | 🏛️ **Quản trị đào tạo** | `admin_daotao` | `123456` | Quản trị khung CTĐT, danh mục học phần, khóa sổ điểm điện tử, xuất báo cáo khảo thí Excel |
-
----
-
-## 8. Hướng dẫn Tích hợp Backend (API Integration Guide)
-
-Frontend đã được thiết kế sẵn sàng để cắm trực tiếp vào hệ thống Backend (Node.js/NestJS, Java Spring Boot, Go, Python/FastAPI hoặc .NET Core):
-
-1. **Chuẩn Schema dữ liệu**: Tham chiếu trực tiếp các interface tại [`src/types/index.ts`](file:///src/types/index.ts) để xây dựng DTO và REST API tương thích.
-2. **Cấu hình biến môi trường**: Sao chép file `.env.example` thành `.env` và khai báo URL Backend API:
-   ```env
-   VITE_API_URL=https://api.yourdomain.edu.vn/v1
-   ```
-3. **Thay thế Mock Service**: Thay thế các hàm gọi dữ liệu trong [`src/services/mockData.ts`](file:///src/services/mockData.ts) bằng `fetch` hoặc `axios` trỏ tới `VITE_API_URL`. Toàn bộ token JWT có thể được lưu trữ và đính kèm tự động thông qua [`src/context/AuthContext.tsx`](file:///src/context/AuthContext.tsx).
 
 ---
 
